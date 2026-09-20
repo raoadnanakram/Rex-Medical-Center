@@ -14,13 +14,56 @@ function Footer() {
                 <img 
                   src="/logo.png" 
                   alt="Rex Medical Centre" 
-                  className="h-14 sm:h-16 w-auto transform group-hover:scale-105 transition-all duration-300  " 
+                  className="h-14 sm:h-16 w-auto transform group-hover:scale-105 transition-all duration-300" 
                 />
               </Link>
             </div>
             <p className="text-sm leading-relaxed text-slate-400">
               Providing professional child therapy, modern developmental support, and expert clinical care with utmost integrity and human kindness.
             </p>
+
+            {/* Social Media Icons */}
+            <div className="flex items-center space-x-3 pt-2">
+              <a 
+                href="https://facebook.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label="Facebook"
+                className="w-9 h-9 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:bg-[#1877F2] hover:text-white hover:border-[#1877F2] transition-all duration-300 shadow-sm"
+              >
+                <i className="fa-brands fa-facebook-f text-sm"></i>
+              </a>
+
+              <a 
+                href="https://instagram.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label="Instagram"
+                className="w-9 h-9 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:bg-gradient-to-tr hover:from-amber-500 hover:via-red-500 hover:to-purple-600 hover:text-white hover:border-transparent transition-all duration-300 shadow-sm"
+              >
+                <i className="fa-brands fa-instagram text-sm"></i>
+              </a>
+
+              <a 
+                href="https://tiktok.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label="TikTok"
+                className="w-9 h-9 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:bg-black hover:text-white hover:border-black transition-all duration-300 shadow-sm"
+              >
+                <i className="fa-brands fa-tiktok text-sm"></i>
+              </a>
+
+              <a 
+                href="https://linkedin.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label="LinkedIn"
+                className="w-9 h-9 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:bg-[#0A66C2] hover:text-white hover:border-[#0A66C2] transition-all duration-300 shadow-sm"
+              >
+                <i className="fa-brands fa-linkedin-in text-sm"></i>
+              </a>
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -71,6 +114,7 @@ function Footer() {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>&copy; {new Date().getFullYear()} Rex Medical Centre. All rights reserved.</p>
           <div className="flex items-center gap-6">
+            <a href="#" className="hover:text-slate-400">FAQ'S</a>
             <a href="#" className="hover:text-slate-400">Privacy Policy</a>
             <a href="#" className="hover:text-slate-400">Terms of Service</a>
           </div>

@@ -23,6 +23,8 @@ import BehaviorTherapy from './pages/BehaviorTherapy';
 import OccupationalTherapy from './pages/OccupationalTherapy';
 import Physiotherapy from './pages/Physiotherapy';
 import SpecialistConsultations from './pages/SpecialistConsultations';
+import OurTeam from './pages/OurTeam';
+
 
 
 function App() {
@@ -52,6 +54,7 @@ function App() {
             <Route path="/services/occupational-therapy" element={<OccupationalTherapy />} />
             <Route path="/services/physiotherapy" element={<Physiotherapy />} />
             <Route path="/services/specialist-consultations" element={<SpecialistConsultations />} />
+            <Route path="/about/our-team" element={<OurTeam />} />
 
           </Routes>
         </div>

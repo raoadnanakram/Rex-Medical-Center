@@ -14,6 +14,7 @@ import naveedImg from '../assets/Naveed.jpg';
 import AsiaImg from '../assets/Asia.jpg';
 import AyazImg from '../assets/Ayaz.jpg';
 import DrImg from '../assets/Dr.PNG';
+import contact1Img from '../assets/contact1.jpg';
 
 const dynamicWords = ["trusted", "expert", "experienced"];
 
@@ -82,7 +83,7 @@ const HeroSection = () => {
             className="grid grid-cols-3 gap-4 border-t border-white/10 pt-6 mb-10 text-left"
           >
             <div>
-              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white">500+</h3>
+              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white">4000+</h3>
               <p className="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">children supported</p>
             </div>
             <div className="border-l border-white/10 pl-4">
@@ -203,7 +204,7 @@ const AboutSection = () => {
           >
             <div className="relative rounded-2xl overflow-hidden shadow-lg shadow-slate-200 border border-slate-100 max-w-md w-full">
               <img
-                src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&q=80&w=800"
+                src={contact1Img}
                 alt="Child Therapy and Care at Rehab Care"
                 className="w-full h-[500px] object-cover object-center transition-transform duration-700 ease-out hover:scale-105"
               />
@@ -492,7 +493,7 @@ const ServicesSection = () => {
     image: occupationalImg 
   },
   { 
-    title: "Pediatric Physiotherapy", 
+    title: "Physiotherapy", 
     image: physiotherapyImg 
   },
 ];
