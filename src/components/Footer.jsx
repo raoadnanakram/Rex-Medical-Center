@@ -25,7 +25,7 @@ function Footer() {
             {/* Social Media Icons */}
             <div className="flex items-center space-x-3 pt-2">
               <a 
-                href="https://facebook.com" 
+                href="https://www.facebook.com/share/188Hyyk26h/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 aria-label="Facebook"
@@ -35,7 +35,7 @@ function Footer() {
               </a>
 
               <a 
-                href="https://instagram.com" 
+                href="https://instagram.com/rex_medical_centre/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 aria-label="Instagram"
@@ -45,7 +45,7 @@ function Footer() {
               </a>
 
               <a 
-                href="https://tiktok.com" 
+                href="https://tiktok.com/naveedahmedaftabbhutta" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 aria-label="TikTok"

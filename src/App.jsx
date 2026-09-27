@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
 import Services from './pages/Services';
+import Tools from './pages/Tools';
 import Conditions from './pages/Conditions';
 import Contact from './pages/Contact';
 import BookConsult from './pages/BookConsult';
@@ -22,9 +23,12 @@ import SpeechTherapy from './pages/SpeechTherapy';
 import BehaviorTherapy from './pages/BehaviorTherapy';
 import OccupationalTherapy from './pages/OccupationalTherapy';
 import Physiotherapy from './pages/Physiotherapy';
+import Sensorytherapy from './pages/Sensorytherapy';
+import Playtherapy from './pages/Playtherapy';
 import SpecialistConsultations from './pages/SpecialistConsultations';
 import OurTeam from './pages/OurTeam';
-
+import AdminLogin from './pages/AdminLogin';
+import AdminDashboard from './pages/AdminDashboard';
 
 
 function App() {
@@ -43,16 +47,21 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/services" element={<Services />} />
+             <Route path="/Tools" element={<Tools />} />
             <Route path="/conditions" element={<Conditions />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/book-a-free-consult" element={<BookConsult />} />
             <Route path="/donat-now" element={<DonateNow />} />
+            <Route path="/admin-login" element={<AdminLogin />} />
+            <Route path="/admin-dashboard" element={<AdminDashboard />} />
 
             {/* Service Subpages */}
             <Route path="/services/speech-therapy" element={<SpeechTherapy />} />
             <Route path="/services/behavior-therapy" element={<BehaviorTherapy />} />
             <Route path="/services/occupational-therapy" element={<OccupationalTherapy />} />
             <Route path="/services/physiotherapy" element={<Physiotherapy />} />
+            <Route path="/services/sensorytherapy" element={<Sensorytherapy />} />
+            <Route path="/services/playtherapy" element={<Playtherapy />} />
             <Route path="/services/specialist-consultations" element={<SpecialistConsultations />} />
             <Route path="/about/our-team" element={<OurTeam />} />
 

@@ -17,10 +17,38 @@ export default function BookConsult() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setError('');
+
+    try {
+      // Backend par appointment save karne ki request
+      const response = await fetch('http://localhost:5000/api/forms/appointment', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          patientName: `${formData.firstName} ${formData.lastName}`.trim(),
+          phone: formData.phone,
+          department: formData.service,
+          date: new Date().toISOString().split('T')[0], // Current date ya required format
+          time: '10:00 AM', // Default ya form field se value le sakte hain
+          message: formData.message
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        setError(data.message || 'Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      console.error('Network Error:', err);
+      setError('Server se connection nahi ho pa raha.');
+    }
   };
 
   return (
@@ -76,17 +104,13 @@ export default function BookConsult() {
             {/* Floating Contact Badges */}
             <div className="absolute bottom-6 left-6 right-6 flex flex-wrap items-center gap-3">
               <a 
-                href="https://wa.me/+923244409797
-
-" 
+                href="https://wa.me/+923244409797" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2.5 bg-white/95 backdrop-blur-md px-5 py-3 rounded-full text-slate-800 text-xs font-bold shadow-lg hover:bg-emerald-50 hover:text-emerald-700 transition-all"
               >
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                <span>+92 324 4409797
-
-</span>
+                <span>+92 324 4409797</span>
               </a>
 
               <a 
@@ -109,6 +133,8 @@ export default function BookConsult() {
             </div>
             <h3 className="font-serif text-2xl font-bold text-slate-900">Book a session</h3>
           </div>
+
+          {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
 
           {submitted ? (
             <motion.div 
@@ -229,7 +255,7 @@ export default function BookConsult() {
 
       </motion.div>
 
-      {/* 5. "We are always here to help you" Section (Book2.jpg integrated) */}
+      {/* Footer Section */}
       <motion.section 
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -237,7 +263,6 @@ export default function BookConsult() {
         transition={{ duration: 0.8 }}
         className="max-w-7xl mx-auto py-16 px-6 sm:px-10 bg-white/90 backdrop-blur-md rounded-[3rem] shadow-xl border border-teal-100/60 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-10"
       >
-        {/* Book2.jpg on left */}
         <div className="lg:col-span-4 rounded-3xl overflow-hidden shadow-lg h-[350px]">
           <img 
             src={book2Img} 
@@ -246,7 +271,6 @@ export default function BookConsult() {
           />
         </div>
 
-        {/* Center Text & Direction Button */}
         <div className="lg:col-span-4 text-center space-y-6 px-4">
           <div className="space-y-2">
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-900">
@@ -262,7 +286,7 @@ export default function BookConsult() {
 
           <div className="pt-2">
             <a 
-              href="https://www.google.com/maps/place/Rex+Medical+Center/@31.5092836,74.2974236,17z/data=!3m1!4b1!4m6!3m5!1s0x391903d7483071a3:0x2ace17feb4b38ff6!8m2!3d31.5092836!4d74.2974236!16s%2Fg%2F11ltc_yvt0?authuser=0&hl=en&entry=ttu&g_ep=EgoyMDI2MDkxNS4wIKXMDSoASAFQAw%3D%3D" 
+              href="https://www.google.com/maps/place/Rex+Medical+Center/@31.5092836,74.2974236,17z/data=!3m1!4b1!4m6!3m5!1s0x391903d7483071a3:0x2ace17feb4b38ff6!8m2!3d31.5092836!4d74.2974236!16s%2Fg%2F11ltc_yvt0?authuser=0&hl=en&entry=ttu" 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-[#1c296b] hover:bg-red-600 text-white font-bold text-sm px-8 py-3.5 rounded-full shadow-lg transition-all duration-300 transform hover:-translate-y-1 group"
@@ -274,8 +298,8 @@ export default function BookConsult() {
             </a>
           </div>
         </div>
-        {/* Right side professional clinical image */}
-           <div className="lg:col-span-4 rounded-3xl overflow-hidden shadow-lg h-[350px]">
+
+        <div className="lg:col-span-4 rounded-3xl overflow-hidden shadow-lg h-[350px]">
           <img 
             src={book1Img} 
             alt="REX Medical Complex Facility" 

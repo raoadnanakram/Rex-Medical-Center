@@ -17,9 +17,38 @@ export default function Contact() {
     message: ''
   });
 
-  const handleSubmit = (e) => {
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Thank you! Your appointment request has been submitted successfully.");
+    setError('');
+
+    try {
+      // Backend ke contact route par data bhej rahe hain
+      const response = await fetch('http://localhost:5000/api/forms/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: `${formData.firstName} ${formData.lastName}`.trim(),
+          email: formData.email,
+          phone: formData.phone,
+          service: formData.service,
+          message: formData.message
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        setError(data.message || 'Kuch masla ho gaya hai. Dobara koshish karein.');
+      }
+    } catch (err) {
+      console.error('Network Error:', err);
+      setError('Server se connection nahi ho pa raha.');
+    }
   };
 
   return (
@@ -113,7 +142,7 @@ export default function Contact() {
           {/* Get Direction Button */}
           <div>
             <a 
-              href="https://www.google.com/maps/place/Rex+Medical+Center/@31.5092836,74.2948487,17z/data=!3m1!4b1!4m6!3m5!1s0x391903d7483071a3:0x2ace17feb4b38ff6!8m2!3d31.5092836!4d74.2974236!16s%2Fg%2F11ltc_yvt0?authuser=0&hl=en&entry=ttu&g_ep=EgoyMDI2MDkxNS4wIKXMDSoASAFQAw%3D%3D" 
+              href="https://www.google.com/maps/place/Rex+Medical+Center/@31.5092836,74.2948487,17z/data=!3m1!4b1!4m6!3m5!1s0x391903d7483071a3:0x2ace17feb4b38ff6!8m2!3d31.5092836!4d74.2974236!16s%2Fg%2F11ltc_yvt0?authuser=0&hl=en&entry=ttu" 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-[#1c296b] hover:bg-red-600 text-white font-bold text-sm px-8 py-4 rounded-full shadow-lg transition-all duration-300 transform hover:-translate-y-1 group"
@@ -225,98 +254,113 @@ export default function Contact() {
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-4 pt-2">
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="space-y-1.5">
-                <label className="text-xs font-semibold text-slate-600">Your name</label>
-                <input 
-                  type="text" 
-                  placeholder="Muhammad" 
-                  value={formData.firstName}
-                  onChange={(e) => setFormData({...formData, firstName: e.target.value})}
-                  required
-                  className="w-full px-4 py-3.5 rounded-2xl border border-slate-200 focus:outline-none focus:border-[#1c296b] text-sm bg-slate-50/50"
-                />
-              </div>
-              <div className="space-y-1.5">
-                <label className="text-xs font-semibold text-slate-600">Last name</label>
-                <input 
-                  type="text" 
-                  placeholder="Ali" 
-                  value={formData.lastName}
-                  onChange={(e) => setFormData({...formData, lastName: e.target.value})}
-                  required
-                  className="w-full px-4 py-3.5 rounded-2xl border border-slate-200 focus:outline-none focus:border-[#1c296b] text-sm bg-slate-50/50"
-                />
-              </div>
-            </div>
+          {error && <p className="text-red-500 text-sm">{error}</p>}
 
-            <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-slate-600">Email</label>
-              <input 
-                type="email" 
-                placeholder="your@mail.com" 
-                value={formData.email}
-                onChange={(e) => setFormData({...formData, email: e.target.value})}
-                required
-                className="w-full px-4 py-3.5 rounded-2xl border border-slate-200 focus:outline-none focus:border-[#1c296b] text-sm bg-slate-50/50"
-              />
-            </div>
-
-            <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-slate-600">Phone number</label>
-              <input 
-                type="tel" 
-                placeholder="+92 300 123 4567" 
-                value={formData.phone}
-                onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                required
-                className="w-full px-4 py-3.5 rounded-2xl border border-slate-200 focus:outline-none focus:border-[#1c296b] text-sm bg-slate-50/50"
-              />
-            </div>
-
-            <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-slate-600">What services are you interested in?</label>
-              <select 
-                value={formData.service}
-                onChange={(e) => setFormData({...formData, service: e.target.value})}
-                required
-                className="w-full px-4 py-3.5 rounded-2xl border border-slate-200 focus:outline-none focus:border-[#1c296b] text-sm bg-slate-50/50 text-slate-700 cursor-pointer"
-              >
-                <option value="">Select a service</option>
-                <option value="Speech Therapy">Speech & Language Therapy</option>
-                <option value="Behavior Therapy">Behavior Therapy (ABA)</option>
-                <option value="Occupational Therapy">Occupational Therapy</option>
-                <option value="Physiotherapy">Pediatric Physiotherapy</option>
-                <option value="Specialist Consultation">Specialist Doctor Consultation</option>
-              </select>
-            </div>
-
-            <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-slate-600">Message</label>
-              <textarea 
-                rows="4" 
-                placeholder="Briefly share what you'd like to discuss (optional)..." 
-                value={formData.message}
-                onChange={(e) => setFormData({...formData, message: e.target.value})}
-                className="w-full px-4 py-3.5 rounded-2xl border border-slate-200 focus:outline-none focus:border-[#1c296b] text-sm bg-slate-50/50"
-              ></textarea>
-            </div>
-
-            <div className="pt-2">
+          {submitted ? (
+            <div className="bg-emerald-50 p-6 rounded-2xl border border-emerald-200 text-center space-y-3">
+              <h4 className="font-serif text-xl font-bold text-emerald-900">Message Sent Successfully!</h4>
+              <p className="text-slate-600 text-sm">Thank you for getting in touch. We will respond to you shortly.</p>
               <button 
-                type="submit" 
-                className="inline-flex items-center gap-3 bg-[#1c296b] hover:bg-red-600 text-white font-bold text-sm px-8 py-4 rounded-full shadow-lg transition-all duration-300 transform hover:-translate-y-1 group cursor-pointer"
+                onClick={() => setSubmitted(false)}
+                className="px-6 py-2 bg-[#1c296b] text-white text-xs font-bold rounded-full hover:bg-red-600 transition-colors"
               >
-                <span>Submit</span>
-                <span className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
-                  <ArrowRight className="w-4 h-4 text-white" />
-                </span>
+                Send Another Message
               </button>
             </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-4 pt-2">
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-1.5">
+                  <label className="text-xs font-semibold text-slate-600">Your name</label>
+                  <input 
+                    type="text" 
+                    placeholder="Muhammad" 
+                    value={formData.firstName}
+                    onChange={(e) => setFormData({...formData, firstName: e.target.value})}
+                    required
+                    className="w-full px-4 py-3.5 rounded-2xl border border-slate-200 focus:outline-none focus:border-[#1c296b] text-sm bg-slate-50/50"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="text-xs font-semibold text-slate-600">Last name</label>
+                  <input 
+                    type="text" 
+                    placeholder="Ali" 
+                    value={formData.lastName}
+                    onChange={(e) => setFormData({...formData, lastName: e.target.value})}
+                    required
+                    className="w-full px-4 py-3.5 rounded-2xl border border-slate-200 focus:outline-none focus:border-[#1c296b] text-sm bg-slate-50/50"
+                  />
+                </div>
+              </div>
 
-          </form>
+              <div className="space-y-1.5">
+                <label className="text-xs font-semibold text-slate-600">Email</label>
+                <input 
+                  type="email" 
+                  placeholder="your@mail.com" 
+                  value={formData.email}
+                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                  required
+                  className="w-full px-4 py-3.5 rounded-2xl border border-slate-200 focus:outline-none focus:border-[#1c296b] text-sm bg-slate-50/50"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-xs font-semibold text-slate-600">Phone number</label>
+                <input 
+                  type="tel" 
+                  placeholder="+92 300 123 4567" 
+                  value={formData.phone}
+                  onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                  required
+                  className="w-full px-4 py-3.5 rounded-2xl border border-slate-200 focus:outline-none focus:border-[#1c296b] text-sm bg-slate-50/50"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-xs font-semibold text-slate-600">What services are you interested in?</label>
+                <select 
+                  value={formData.service}
+                  onChange={(e) => setFormData({...formData, service: e.target.value})}
+                  required
+                  className="w-full px-4 py-3.5 rounded-2xl border border-slate-200 focus:outline-none focus:border-[#1c296b] text-sm bg-slate-50/50 text-slate-700 cursor-pointer"
+                >
+                  <option value="">Select a service</option>
+                  <option value="Speech Therapy">Speech & Language Therapy</option>
+                  <option value="Behavior Therapy">Behavior Therapy (ABA)</option>
+                  <option value="Occupational Therapy">Occupational Therapy</option>
+                  <option value="Physiotherapy">Pediatric Physiotherapy</option>
+                  <option value="Specialist Consultation">Specialist Doctor Consultation</option>
+                </select>
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-xs font-semibold text-slate-600">Message</label>
+                <textarea 
+                  rows="4" 
+                  placeholder="Briefly share what you'd like to discuss (optional)..." 
+                  value={formData.message}
+                  onChange={(e) => setFormData({...formData, message: e.target.value})}
+                  className="w-full px-4 py-3.5 rounded-2xl border border-slate-200 focus:outline-none focus:border-[#1c296b] text-sm bg-slate-50/50"
+                ></textarea>
+              </div>
+
+              <div className="pt-2">
+                <button 
+                  type="submit" 
+                  className="inline-flex items-center gap-3 bg-[#1c296b] hover:bg-red-600 text-white font-bold text-sm px-8 py-4 rounded-full shadow-lg transition-all duration-300 transform hover:-translate-y-1 group cursor-pointer"
+                >
+                  <span>Submit</span>
+                  <span className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
+                    <ArrowRight className="w-4 h-4 text-white" />
+                  </span>
+                </button>
+              </div>
+
+            </form>
+          )}
         </motion.div>
 
       </section>

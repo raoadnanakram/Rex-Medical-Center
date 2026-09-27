@@ -13,6 +13,8 @@ function Navbar() {
     { name: 'Speech & Language Therapy', path: '/services/speech-therapy' },
     { name: 'Occupational Therapy & Sensory Integration', path: '/services/occupational-therapy' },
     { name: 'Physiotherapy', path: '/services/physiotherapy' },
+    { name: 'Sensorytherapy', path: '/services/sensorytherapy' },
+        { name: 'Playtherapy', path: '/services/playtherapy' },
     { name: 'Specialist Doctor Consultations', path: '/services/specialist-consultations' },
 
   ];
@@ -134,7 +136,10 @@ function Navbar() {
               </AnimatePresence>
             </div>
             {/* ------------------------------- */}
-
+   <Link to="/Tools" className="relative group py-1 hover:text-[#1c296b] transition-colors duration-200">
+              Tools
+              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-[#1c296b] transition-all duration-300 group-hover:w-full"></span>
+            </Link>
             <Link to="/conditions" className="relative group py-1 hover:text-[#1c296b] transition-colors duration-200">
               Conditions
               <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-[#1c296b] transition-all duration-300 group-hover:w-full"></span>
