@@ -1,23 +1,129 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, CheckCircle2, ShieldCheck, Sparkles, HeartHandshake, DollarSign, Smile, Target, Stethoscope, Activity, Award, Check } from 'lucide-react';
+import { 
+  ArrowRight, 
+  CheckCircle2, 
+  ShieldCheck, 
+  Sparkles, 
+  HeartHandshake, 
+  DollarSign, 
+  Smile, 
+  Target, 
+  Stethoscope, 
+  Activity, 
+  Award, 
+  Check, 
+  Users,
+  Star,
+  Quote,
+  Play,
+  Calendar,
+  ExternalLink
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
+// Local Assets Imports
 import heroImg from '../assets/hero-banner.jpg';
 import physiotherapyImg from '../assets/Physiotherapy.jpg';
 import occupationalImg from '../assets/OccupationalTherapy.jpg';
 import speechImg from '../assets/SpeechlanguageTherapy.jpg';
 import abaImg from '../assets/ABATherapy.jpg';
-// Team members ke liye local JPG images import ki gayi hain (Naveed aur Usman shamil hain)
 import AftabImg from '../assets/Aftab.jpg';
 import usmanImg from '../assets/Usman.jpg';
 import naveedImg from '../assets/Naveed.jpg';
 import AsiaImg from '../assets/Asia.jpg';
 import AyazImg from '../assets/Ayaz.jpg';
 import DrImg from '../assets/Dr.PNG';
+import KashifImg from '../assets/Kashif.jpg';
 import contact1Img from '../assets/contact1.jpg';
+import contactDr from '../assets/Abdulrehman.jpeg';
 
 const dynamicWords = ["trusted", "expert", "experienced"];
+const BOOK_LINK = "/book-a-free-consult";
 
+// ================= DATA =================
+const reviewsData = [
+  {
+    id: 1,
+    comment: "My son started speaking his first words after just a few months of speech therapy. The therapists are patient, caring and truly professional.",
+    name: "Ayesha Khan",
+    role: "Parent of Speech Therapy Patient",
+    initial: "AK",
+    bgInitial: "bg-teal-600",
+  },
+  {
+    id: 2,
+    comment: "The ABA program completely changed our daily routine. We see better behavior, focus and confidence in our child every week.",
+    name: "Muhammad Imran",
+    role: "Parent",
+    initial: "MI",
+    bgInitial: "bg-[#162C5A]",
+  },
+  {
+    id: 3,
+    comment: "Clean, friendly environment and very affordable consultation. The doctors explained everything clearly and gave us a proper plan.",
+    name: "Sana Tariq",
+    role: "Parent",
+    initial: "ST",
+    bgInitial: "bg-fuchsia-700",
+  },
+  {
+    id: 4,
+    comment: "Occupational therapy helped my daughter with sensory issues and handwriting. The team is always supportive and available.",
+    name: "Hina Malik",
+    role: "Parent",
+    initial: "HM",
+    bgInitial: "bg-amber-600",
+  },
+  {
+    id: 5,
+    comment: "Physiotherapy sessions here are well organised and the staff really cares about every child's progress. Highly recommended.",
+    name: "Zubair Ahmed",
+    role: "Client",
+    initial: "ZA",
+    bgInitial: "bg-emerald-600",
+  },
+  {
+    id: 6,
+    comment: "From the first consultation to regular sessions, everything was smooth. We feel supported as a family, not just as patients.",
+    name: "Nadia Farooq",
+    role: "Parent",
+    initial: "NF",
+    bgInitial: "bg-rose-600",
+  },
+];
+
+const speechVideosData = [
+  {
+    id: "qjH9nvLDrOE",
+    title: "Stammering Treatment & Speech Therapy",
+    desc: "Detailed guidance on stammering (hklahat), confidence building, and practical home exercises for kids and adults.",
+    duration: "6:02",
+    url: "https://youtu.be/qjH9nvLDrOE"
+  },
+  {
+    id: "dixT-ZG_S9U",
+    title: "Interview & Complete Center Overview",
+    desc: "An exclusive interview exploring Rex Medical Centre Lahore, therapy techniques, special needs care, and expert team.",
+    duration: "28:00",
+    url: "https://youtu.be/dixT-ZG_S9U"
+  },
+  {
+    id: "B2dM8bo5zM0",
+    title: "Speech Therapy Techniques, Methods & Benefits",
+    desc: "Learn about speech therapy benefits, treating speech delays caused by gadget usage, and expert clinical recommendations.",
+    duration: "17:00",
+    url: "https://www.youtube.com/live/B2dM8bo5zM0"
+  },
+  {
+    id: "AsgNtz1U1Vo",
+    title: "How to Control Stammering & Treatment",
+    desc: "Effective clinical treatment methods for stammering and overcoming virtual autism caused by excessive screen time.",
+    duration: "6:02",
+    url: "https://youtu.be/AsgNtz1U1Vo"
+  }
+];
+
+// ================= HERO SECTION =================
 const HeroSection = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
 
@@ -29,25 +135,35 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative w-full bg-[#271E38] text-white overflow-hidden rounded-none sm:rounded-[2.5rem] my-0 sm:my-6 shadow-xl border-y sm:border border-white/5">
-      <div className="w-full min-h-[600px] lg:min-h-[680px] grid grid-cols-1 lg:grid-cols-12 items-center">
-        
-        {/* Left Content Side */}
-        <motion.div 
-          initial={{ opacity: 0, x: -50 }}
+    <section className="relative w-full bg-[#271E38] text-white overflow-hidden rounded-none sm:rounded-[2.5rem] my-0 sm:my-6 border-y sm:border border-white/10">
+      <div className="pointer-events-none absolute -top-32 -left-32 w-96 h-96 rounded-full bg-teal-400/10 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-fuchsia-400/10 blur-3xl" />
+
+      <div className="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-12 sm:py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="lg:col-span-6 p-8 sm:p-12 lg:pl-20 lg:pr-10 z-20 flex flex-col justify-center"
+          className="lg:col-span-6 flex flex-col items-start text-left z-10"
         >
-          {/* Main Heading */}
-          <motion.h1 
+          <motion.span
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="inline-flex items-center gap-2 bg-white/10 border border-white/15 px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-[0.2em] text-teal-300 mb-6 backdrop-blur-md"
+          >
+            <Sparkles className="w-3.5 h-3.5" />
+            Professional Child Therapy
+          </motion.span>
+
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal leading-[1.15] tracking-tight mb-6"
+            className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal leading-[1.12] tracking-tight mb-6"
           >
             Your{" "}
-            <span className="inline-inline-block text-teal-400 italic font-semibold px-1">
+            <span className="inline-block text-teal-400 italic font-semibold">
               <AnimatePresence mode="wait">
                 <motion.span
                   key={dynamicWords[currentWordIndex]}
@@ -65,94 +181,111 @@ const HeroSection = () => {
             child therapists
           </motion.h1>
 
-          {/* Subtitle */}
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-slate-300 text-sm sm:text-base leading-relaxed mb-10 max-w-md font-medium"
+            className="text-slate-300 text-sm sm:text-base leading-relaxed mb-8 max-w-md font-medium"
           >
             Professional child therapy and developmental support designed for growth, communication, learning, and independence.
           </motion.p>
 
-          {/* Key Stats Counter Section */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="grid grid-cols-3 gap-4 border-t border-white/10 pt-6 mb-10 text-left"
+            transition={{ duration: 0.6, delay: 0.55 }}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 w-full max-w-lg"
           >
-            <div>
-              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white">4000+</h3>
-              <p className="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">children supported</p>
+            <div className="group flex items-center gap-3.5 bg-white/5 border border-white/10 rounded-2xl p-4 hover:bg-white/10 hover:border-teal-400/40 transition-all duration-300">
+              <span className="w-11 h-11 rounded-xl bg-teal-400/15 text-teal-300 flex items-center justify-center shrink-0 group-hover:bg-teal-400 group-hover:text-[#271E38] transition-colors duration-300">
+                <Users className="w-5 h-5" />
+              </span>
+              <div>
+                <h3 className="text-sm font-semibold text-white">Expert Team</h3>
+                <p className="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">qualified therapists</p>
+              </div>
             </div>
-            <div className="border-l border-white/10 pl-4">
-              <h3 className="text-sm sm:text-base font-semibold text-white">Expert Team</h3>
-              <p className="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">qualified therapists</p>
-            </div>
-            <div className="border-l border-white/10 pl-4">
-              <h3 className="text-sm sm:text-base font-semibold text-white">Personalized Care</h3>
-              <p className="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">child-focused support</p>
+
+            <div className="group flex items-center gap-3.5 bg-white/5 border border-white/10 rounded-2xl p-4 hover:bg-white/10 hover:border-teal-400/40 transition-all duration-300">
+              <span className="w-11 h-11 rounded-xl bg-teal-400/15 text-teal-300 flex items-center justify-center shrink-0 group-hover:bg-teal-400 group-hover:text-[#271E38] transition-colors duration-300">
+                <HeartHandshake className="w-5 h-5" />
+              </span>
+              <div>
+                <h3 className="text-sm font-semibold text-white">Personalized Care</h3>
+                <p className="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">child-focused support</p>
+              </div>
             </div>
           </motion.div>
 
-          {/* Animated Shimmer CTA Button */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.8 }}
           >
-            <a
-              href="/book-a-free-consult" 
-              className="relative overflow-hidden inline-flex items-center gap-4 bg-[#EAF7F3] text-[#1E252B] font-semibold text-sm px-7 py-3.5 rounded-full shadow-lg hover:bg-white transition-all duration-300 transform hover:-translate-y-1 hover:shadow-emerald-400/20 group"
+            <Link
+              to={BOOK_LINK}
+              className="relative overflow-hidden inline-flex items-center gap-4 bg-[#EAF7F3] text-[#1E252B] font-semibold text-sm px-7 py-3.5 rounded-full hover:bg-white transition-all duration-300 transform hover:-translate-y-1 group"
             >
               <span className="absolute top-0 -left-full w-full h-full bg-white/40 transform -skew-x-12 group-hover:left-full transition-all duration-700 ease-in-out" />
               <span className="relative z-10">Start Therapy Today</span>
               <span className="relative z-10 w-8 h-8 rounded-full bg-[#271E38] text-white flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
                 <ArrowRight className="w-4 h-4" />
               </span>
-            </a>
+            </Link>
           </motion.div>
         </motion.div>
 
-        {/* Right Aligned Image Side */}
-        <motion.div 
-          initial={{ opacity: 0, x: 50 }}
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.9, ease: "easeOut" }}
-          className="lg:col-span-6 relative h-full min-h-[400px] lg:min-h-[680px] overflow-hidden shadow-[-10px_0_25px_rgba(0,0,0,0.25)]"
+          className="lg:col-span-6 w-full max-w-xl mx-auto lg:max-w-none relative"
         >
-          <img
-            src={heroImg}
-            alt="Child Therapy Session"
-            className="w-full h-full object-cover object-center transition-transform duration-1000 ease-out"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#271E38] via-[#271E38]/20 to-transparent hidden lg:block w-1/3 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#271E38] via-transparent to-transparent lg:hidden h-1/2 bottom-0 pointer-events-none" />
+          <div className="absolute -inset-2 rounded-[2.5rem] bg-gradient-to-tr from-teal-400/20 via-transparent to-purple-400/20 blur-xl opacity-70 pointer-events-none" />
 
-          {/* Floating Badge */}
+          <div className="relative rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden border border-white/15 bg-[#33284a] shadow-2xl">
+            <img
+              src={heroImg}
+              alt="Child Therapy Session"
+              className="w-full h-[380px] sm:h-[460px] lg:h-[520px] object-cover object-center transform hover:scale-105 transition-transform duration-1000 ease-out"
+            />
+          </div>
+
           <motion.div
-            animate={{ y: [0, -10, 0] }}
+            animate={{ y: [0, -6, 0] }}
             transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-            className="absolute top-8 right-8 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-xl border border-white/50 hidden sm:flex items-center gap-2.5 text-xs font-bold text-slate-800"
+            className="absolute top-5 right-5 sm:top-6 sm:right-6 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl flex items-center gap-2.5 text-xs font-bold text-slate-800 border border-white/50 shadow-md"
           >
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
             Active Child Sessions
           </motion.div>
-        </motion.div>
 
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+            className="absolute -bottom-6 left-4 sm:-bottom-6 sm:left-6 bg-[#EAF7F3] text-[#271E38] rounded-2xl sm:rounded-3xl pl-4 pr-6 py-3.5 flex items-center gap-3.5 border border-white/40 shadow-xl"
+          >
+            <span className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#271E38] text-teal-300 flex items-center justify-center shrink-0">
+              <Users className="w-5 h-5 sm:w-6 sm:h-6" />
+            </span>
+            <div className="leading-tight">
+              <h3 className="font-serif text-xl sm:text-2xl font-bold tracking-tight">4000+</h3>
+              <p className="text-[10px] sm:text-xs font-semibold text-[#271E38]/70">children supported</p>
+            </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
 };
 
+// ================= ABOUT SECTION =================
 const AboutSection = () => {
   return (
     <section className="py-20 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
-          {/* Left Side: Text Content */}
           <motion.div 
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -175,26 +308,24 @@ const AboutSection = () => {
 
             <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
               <p>
-                Every child deserves a chance to thrive. Autism, Down syndrome, ADHD, dyslexia, or physical differences shouldn't stand in the way. If you've been searching for a special needs therapy centre near me in Lahore, REX Medical Complex Allama , a video Town Lahore provides personalized therapy and support to help children with special needs grow, learn, and reach their full potential, while building a more inclusive community for everyone.
+                Every child deserves a chance to thrive. Autism, Down syndrome, ADHD, dyslexia, or physical differences shouldn't stand in the way. If you've been searching for a special needs therapy centre near me in Lahore, REX Medical Complex Allama Iqbal Town Lahore provides personalized therapy and support to help children with special needs grow, learn, and reach their full potential, while building a more inclusive community for everyone.
               </p>
               <p>
-                Our team of experienced therapists, educators, and medical professionals works hand-in-hand with families to build personalized treatment plans that address each child's specific needs. Whether you're looking for child therapy near me, an autism centre near me, or occupational therapy near me, our centres across Lahore make expert care easy to reach from your neighbourhood. We believe progress happens not just in the clinic, but through a supportive community one where parents, caregivers, and specialists work together toward shared goals.
+                Our team of experienced therapists, educators, and medical professionals works hand-in-hand with families to build personalized treatment plans that address each child's specific needs. Whether you're looking for child therapy near me, an autism centre near me, or occupational therapy near me, our centres across Lahore make expert care easy to reach from your neighbourhood. We believe progress happens not just in the clinic, but through a supportive community where parents, caregivers, and specialists work together toward shared goals.
               </p>
             </div>
 
-            {/* Button with #162C5A background, Red hover, and /about link */}
             <div className="pt-2">
               <Link
                 to="/about"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-white font-medium bg-[#162C5A] hover:bg-red-600 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
               >
                 <span>Learn More</span>
-                <i className="fa-solid fa-arrow-right text-sm"></i>
+                <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </motion.div>
 
-          {/* Right Side: Unsplash Image Column */}
           <motion.div 
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -210,14 +341,13 @@ const AboutSection = () => {
               />
             </div>
           </motion.div>
-
         </div>
       </div>
     </section>
   );
 };
 
-{/* Mission Banner Section */}
+// ================= MISSION BANNER SECTION =================
 const MissionBannerSection = () => {
   return (
     <section className="relative py-20 bg-gradient-to-r from-teal-600 via-teal-500 to-cyan-400 text-white overflow-hidden my-6 shadow-xl rounded-none sm:rounded-[2.5rem]">
@@ -249,15 +379,15 @@ const MissionBannerSection = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="flex justify-center"
         >
-           <div className="hidden md:flex items-center">
-                      <Link 
-                        to="/book-a-free-consult"  
-                        className="relative overflow-hidden bg-[#1c296b] hover:bg-red-600 text-white text-base font-bold px-8 py-3.5 rounded-full transition-all duration-300 shadow-lg hover:shadow-red-600/40 transform hover:-translate-y-0.5 active:translate-y-0 text-center group"
-                      >
-                        <span className="relative z-10">Book Appointment</span>
-                        <span className="absolute top-0 -left-full w-full h-full bg-white/20 transform -skew-x-12 group-hover:left-full transition-all duration-700 ease-in-out"></span>
-                      </Link>
-                    </div>
+          <div className="flex items-center">
+            <Link 
+              to={BOOK_LINK}  
+              className="relative overflow-hidden bg-[#1c296b] hover:bg-red-600 text-white text-base font-bold px-8 py-3.5 rounded-full transition-all duration-300 shadow-lg hover:shadow-red-600/40 transform hover:-translate-y-0.5 active:translate-y-0 text-center group"
+            >
+              <span className="relative z-10">Book Appointment</span>
+              <span className="absolute top-0 -left-full w-full h-full bg-white/20 transform -skew-x-12 group-hover:left-full transition-all duration-700 ease-in-out"></span>
+            </Link>
+          </div>
         </motion.div>
       </div>
 
@@ -267,7 +397,7 @@ const MissionBannerSection = () => {
   );
 };
 
-{/* Why Choose Section */}
+// ================= WHY CHOOSE SECTION =================
 const WhyChooseSection = () => {
   const reasons = [
     {
@@ -300,7 +430,6 @@ const WhyChooseSection = () => {
   return (
     <section className="py-24 bg-gradient-to-b from-white via-slate-50/50 to-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -346,13 +475,12 @@ const WhyChooseSection = () => {
             </motion.div>
           ))}
         </div>
-
       </div>
     </section>
   );
 };
 
-{/* Scope Section */}
+// ================= SCOPE SECTION =================
 const ScopeSection = () => {
   const scopePoints = [
     {
@@ -385,7 +513,6 @@ const ScopeSection = () => {
   return (
     <section className="py-24 bg-slate-900 text-white overflow-hidden relative rounded-none sm:rounded-[2.5rem] my-6 shadow-2xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
         <div className="max-w-3xl mx-auto text-center mb-16">
           <motion.span 
             initial={{ opacity: 0, y: -15 }}
@@ -468,7 +595,6 @@ const ScopeSection = () => {
             </div>
           </motion.div>
         </div>
-
       </div>
 
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-teal-600/10 rounded-full blur-3xl pointer-events-none -translate-y-1/2" />
@@ -477,26 +603,14 @@ const ScopeSection = () => {
   );
 };
 
-{/* Services Section */}
+// ================= SERVICES SECTION =================
 const ServicesSection = () => {
   const services = [
-  { 
-    title: "ABA Therapy", 
-    image: abaImg 
-  },
-  { 
-    title: "Speech & Language Therapy", 
-    image: speechImg 
-  },
-  { 
-    title: "Occupational Therapy & Sensory", 
-    image: occupationalImg 
-  },
-  { 
-    title: "Physiotherapy", 
-    image: physiotherapyImg 
-  },
-];
+    { title: "ABA Therapy", image: abaImg },
+    { title: "Speech & Language Therapy", image: speechImg },
+    { title: "Occupational Therapy & Sensory", image: occupationalImg },
+    { title: "Physiotherapy", image: physiotherapyImg },
+  ];
 
   return (
     <section className="py-24 bg-[#271E38] text-white overflow-hidden rounded-none sm:rounded-[2.5rem] my-6 shadow-2xl">
@@ -516,37 +630,31 @@ const ServicesSection = () => {
           </p>
         </motion.div>
 
-        {/* Services Cards Grid */}
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-  {services.map((service, idx) => (
-    <motion.div
-      key={idx}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: idx * 0.1 }}
-      whileHover={{ y: -8 }}
-      className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-700/50 group h-[420px] flex flex-col justify-end bg-slate-900"
-    >
-      {/* Image with proper container height */}
-      <img
-        src={service.image}
-        alt={service.title}
-        className="absolute inset-0 w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-700 ease-out"
-      />
-
-      {/* Dark Gradient Overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent opacity-90 group-hover:opacity-95 transition-opacity" />
-
-      {/* Title Content at Bottom */}
-      <div className="relative z-10 p-6 text-center">
-        <h3 className="font-serif text-xl sm:text-2xl font-bold text-white tracking-wide leading-snug drop-shadow-md">
-          {service.title}
-        </h3>
-      </div>
-    </motion.div>
-  ))}
-</div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {services.map((service, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              whileHover={{ y: -8 }}
+              className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-700/50 group h-[420px] flex flex-col justify-end bg-slate-900"
+            >
+              <img
+                src={service.image}
+                alt={service.title}
+                className="absolute inset-0 w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-700 ease-out"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent opacity-90 group-hover:opacity-95 transition-opacity" />
+              <div className="relative z-10 p-6 text-center">
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-white tracking-wide leading-snug drop-shadow-md">
+                  {service.title}
+                </h3>
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -561,7 +669,7 @@ const ServicesSection = () => {
           >
             <span className="absolute top-0 -left-full w-full h-full bg-white/40 transform -skew-x-12 group-hover:left-full transition-all duration-700 ease-in-out" />
             <span className="relative z-10">More Services</span>
-                <span className="relative z-10 w-8 h-8 rounded-full bg-[#271E38] text-white flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
+            <span className="relative z-10 w-8 h-8 rounded-full bg-[#271E38] text-white flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
               <ArrowRight className="w-4 h-4" />
             </span>
           </Link>
@@ -571,7 +679,7 @@ const ServicesSection = () => {
   );
 };
 
-{/* Conditions Section */}
+// ================= CONDITIONS SECTION =================
 const ConditionsSection = () => {
   const leftConditions = [
     "Autism Spectrum Support",
@@ -590,7 +698,6 @@ const ConditionsSection = () => {
   return (
     <section className="py-24 bg-gradient-to-b from-slate-50 to-white overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -607,7 +714,6 @@ const ConditionsSection = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-16">
-          
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -639,7 +745,6 @@ const ConditionsSection = () => {
             className="lg:col-span-4 flex justify-center relative py-6"
           >
             <div className="absolute inset-0 rounded-full bg-teal-200/40 filter blur-2xl animate-pulse -z-10" />
-            
             <div className="w-72 h-72 sm:w-80 sm:h-80 rounded-full overflow-hidden border-8 border-white shadow-2xl relative">
               <img
                 src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800"
@@ -671,7 +776,6 @@ const ConditionsSection = () => {
               </motion.div>
             ))}
           </motion.div>
-
         </div>
 
         <motion.div
@@ -689,13 +793,12 @@ const ConditionsSection = () => {
             <ArrowRight className="w-4 h-4" />
           </Link>
         </motion.div>
-
       </div>
     </section>
   );
 };
 
-{/* Team Carousel Section with Pause on Hover */}
+// ================= TEAM CAROUSEL SECTION =================
 const TeamCarouselSection = () => {
   const [isPaused, setIsPaused] = useState(false);
 
@@ -704,37 +807,55 @@ const TeamCarouselSection = () => {
       name: "Dr M. A. Aftab Bhutta",
       role: "Chairman",
       image: AftabImg,
-      bio: "I am an ASHA board certified Speech-Language Pathologist. I graduated with B.S. in Communication Disorders from the University of Tennessee - Knoxville and my M.S. in Communication Sciences and Disorders from Western Carolina University."
+      bio: "As a Speech Pathologist and CEO of Rex Medical Centre, I am honored to lead an organization that is dedicated to providing free rehabilitation services to deserving individuals."
     },
     {
       name: "Naveed Ahmed Aftab Bhutta",
-      role: "Chief Executive Officer",
+      role: "Chief Executive Officer | Consultant Speech Pathologist",
       image: naveedImg,
-      bio: "Specialized in sensory integration and motor skill development. Dedicated to helping children achieve independence in their daily routines through fun and engaging therapy."
+      bio: "As a Speech Pathologist and CEO of Rex Medical Centre, I am honored to lead an organization that is dedicated to providing free rehabilitation services to deserving individuals."
     },
     {
       name: "Usman Ahmad Bhutta",
       role: "Administrator & Media Director",
       image: usmanImg,
-      bio: "Extensive experience in neuro-developmental therapy, helping children with cerebral palsy and physical differences build strength, balance, and confidence."
+      bio: "Extensive experience in healthcare administration, media outreach, and supporting organizational growth."
     },
     {
       name: "Ms. Asia Gillani",
-      role: "Chief Operating Officer",
+      role: "Chief Operating Officer | Consultant Speech Pathologist",
       image: AsiaImg,
-      bio: "Focused on behavioral intervention, social communication building, and creating positive learning environments for children with autism spectrum disorder."
+      bio: "As the Chief Operating Officer of Rex Medical Centre, I am responsible for ensuring that our organization runs smoothly and efficiently."
+    },
+    {
+      name: "Dr. Kashif Faraz Ahmed",
+      role: "Clinical Psychologist & Life Coach",
+      image: KashifImg,
+      bio: "Dr. Kashif Faraz Ahmed is a renowned clinical psychologist, academic, and life coach dedicated to enhancing mental well-being."
     },
     {
       name: "Dr. Muhammad Ayzed",
-      role: "General Surgeon & Family Physician",
+      role: "Consultant Surgeon & Specialist",
       image: AyazImg,
-      bio: "Passionate about early childhood intervention, supporting families with comprehensive guidance, and fostering inclusive developmental milestones."
+      bio: "Dr. Muhammad Ayzed is an expert surgeon and Fellow FCPS in HPB/Liver Transplant Surgery."
     },
-        {
-      name: "Dr. Abbas Aftab",
-      role: "Family Physician",
+    {
+      name: "Hafiz M. Tahir Zia",
+      role: "Consultant Speech & Language Pathologist",
       image: DrImg,
-      bio: "Passionate about early childhood intervention, supporting families with comprehensive guidance, and fostering inclusive developmental milestones."
+      bio: "Hafiz M. Tahir Zia is an experienced Consultant Speech & Language Pathologist holding an MS in Speech & Language Pathology."
+    },
+    {
+      name: "Dr. Abbas Aftab",
+      role: "Consultant Medical Physician & Neurologist",
+      image: DrImg,
+      bio: "Dr. Abbas Aftab is an experienced Consultant Medical Physician and Neurologist at General Hospital Lahore."
+    },
+    {
+      name: "Dr. Abdur Rehman",
+      role: "PhD Nutrition & B.S. Natural Sciences",
+      image: contactDr,
+      bio: "Dr. Abdur Rehman is a passionate Clinical Nutritionist dedicated to transforming lives through therapeutic diet plan strategies. He empowers families with tailored nutritional support, helping children and individuals unlock their full growth, vitality, and healing potential."
     }
   ];
 
@@ -749,8 +870,8 @@ const TeamCarouselSection = () => {
         <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-3">
           Meet Our Team
         </h2>
-        <p className="text-slate-600 text-sm sm:text-base font-medium">
-          below are some of our 250+ therapists (Hover over cards to pause)
+        <p className="text-gray-600 text-center text-sm mt-2">
+          Dedicated Specialists Committed to Compassionate Care & Child Development
         </p>
       </div>
 
@@ -799,11 +920,22 @@ const TeamCarouselSection = () => {
           ))}
         </motion.div>
       </div>
+      <div className="mt-12 text-center flex justify-center">
+        <Link
+          to="/about/our-team"
+          className="group inline-flex items-center gap-3 bg-[#1c296b] hover:bg-red-600 text-white font-bold text-sm px-8 py-4 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
+        >
+          <span>Meet Our Full Team</span>
+          <span className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
+            <ArrowRight className="w-4 h-4 text-white" />
+          </span>
+        </Link>
+      </div>
     </section>
   );
 };
 
-{/* Child Development Assessments Section */}
+// ================= ASSESSMENT SECTION =================
 const AssessmentSection = () => {
   const assessmentPoints = [
     "Autism & Behavioral Support",
@@ -816,7 +948,6 @@ const AssessmentSection = () => {
     <section className="py-24 bg-slate-50 overflow-hidden border-t border-slate-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
           <motion.div 
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -835,7 +966,7 @@ const AssessmentSection = () => {
 
             <div className="pt-2">
               <Link
-                to="/book-a-free-consult" 
+                to={BOOK_LINK} 
                 className="inline-flex items-center gap-3 px-7 py-3.5 rounded-full text-white font-medium bg-[#162C5A] hover:bg-red-600 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 group"
               >
                 <span>Book Child Assessment</span>
@@ -871,14 +1002,13 @@ const AssessmentSection = () => {
               ))}
             </div>
           </motion.div>
-
         </div>
       </div>
     </section>
   );
 };
 
-{/* Journey Steps Section */}
+// ================= JOURNEY STEPS SECTION =================
 const JourneyStepsSection = () => {
   const steps = [
     {
@@ -906,7 +1036,6 @@ const JourneyStepsSection = () => {
   return (
     <section className="py-24 bg-white overflow-hidden border-t border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -958,7 +1087,7 @@ const JourneyStepsSection = () => {
           className="flex justify-center"
         >
           <Link
-            to="/book-a-free-consult" 
+            to={BOOK_LINK} 
             className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-medium bg-[#162C5A] hover:bg-red-600 transition-all duration-300 shadow-md hover:shadow-xl transform hover:-translate-y-1 group"
           >
             <span>Book a consultation</span>
@@ -967,53 +1096,366 @@ const JourneyStepsSection = () => {
             </span>
           </Link>
         </motion.div>
-
       </div>
     </section>
   );
 };
 
-// Main Home Page Export
+// ================= REVIEWS CAROUSEL SECTION =================
+export const ReviewsCarouselSection = () => {
+  const rowOne = [...reviewsData, ...reviewsData];
+  const rowTwo = [...reviewsData].reverse();
+  const rowTwoDoubled = [...rowTwo, ...rowTwo];
+
+  return (
+    <section className="relative py-24 bg-[#271E38] text-white overflow-hidden rounded-none sm:rounded-[2.5rem] my-6 shadow-2xl border border-white/10">
+      <style>{`
+        @keyframes rxScrollLeft {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+        @keyframes rxScrollRight {
+          from { transform: translateX(-50%); }
+          to { transform: translateX(0); }
+        }
+        .rx-track-left { animation: rxScrollLeft 45s linear infinite; }
+        .rx-track-right { animation: rxScrollRight 50s linear infinite; }
+        .rx-wrap:hover .rx-track-left,
+        .rx-wrap:hover .rx-track-right { animation-play-state: paused; }
+      `}</style>
+
+      <div className="pointer-events-none absolute -top-32 -left-32 w-96 h-96 rounded-full bg-teal-400/10 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-fuchsia-400/10 blur-3xl" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <motion.div 
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="lg:col-span-4 text-left"
+          >
+            <span className="inline-flex items-center gap-2 bg-white/10 border border-white/15 px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-[0.2em] text-teal-300 mb-6 backdrop-blur-md">
+              <Sparkles className="w-3.5 h-3.5" /> Patient Testimonials
+            </span>
+            
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-white leading-[1.15] tracking-tight mb-6">
+              Trusted by <span className="italic font-semibold text-teal-300">families</span> across Lahore
+            </h2>
+
+            <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-8">
+              Read authentic feedback from patients and parents who experienced compassionate care, dedicated consultations, and successful treatments at REX Medical Complex.
+            </p>
+
+            <div className="grid grid-cols-2 gap-4 pt-6 border-t border-white/15 mb-8">
+              <div className="bg-white/5 backdrop-blur-md p-4 rounded-2xl border border-white/10">
+                <p className="text-2xl sm:text-3xl font-bold font-serif text-teal-300">100%</p>
+                <p className="text-xs text-slate-300 mt-1 font-medium">Committed Care</p>
+              </div>
+              <div className="bg-white/5 backdrop-blur-md p-4 rounded-2xl border border-white/10">
+                <p className="text-2xl sm:text-3xl font-bold font-serif text-teal-300">4.9/5</p>
+                <p className="text-xs text-slate-300 mt-1 font-medium">Patient Rating</p>
+              </div>
+            </div>
+
+            <Link
+              to={BOOK_LINK}
+              className="inline-flex items-center gap-3 bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold px-7 py-4 rounded-full shadow-lg hover:shadow-teal-500/25 transition-all duration-300 group text-sm"
+            >
+              <Calendar className="w-4 h-4" />
+              <span>Book Consultation</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="lg:col-span-8 rx-wrap overflow-hidden relative py-4"
+          >
+            <div className="absolute top-0 bottom-0 left-0 w-16 bg-gradient-to-r from-[#271E38] to-transparent z-10 pointer-events-none" />
+            <div className="absolute top-0 bottom-0 right-0 w-16 bg-gradient-to-l from-[#271E38] to-transparent z-10 pointer-events-none" />
+
+            <div className="flex w-max rx-track-left mb-6">
+              {rowOne.map((item, idx) => (
+                <div 
+                  key={`row1-${idx}`}
+                  className="group relative w-[290px] sm:w-[350px] mr-6 flex-shrink-0 rounded-3xl p-6 bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 hover:border-teal-400/50 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300 flex flex-col justify-between"
+                >
+                  <Quote className="absolute top-5 right-5 w-8 h-8 text-teal-400/20 group-hover:text-teal-400/60 group-hover:rotate-12 transition-all duration-300" />
+                  <div>
+                    <div className="flex items-center gap-1 mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                      ))}
+                    </div>
+                    <p className="text-slate-300 text-sm leading-relaxed mb-6">
+                      {item.comment}
+                    </p>
+                  </div>
+                  <div className="pt-4 border-t border-white/10 flex items-center gap-3">
+                    <div className={`w-11 h-11 rounded-full ${item.bgInitial} text-white font-bold text-sm flex items-center justify-center shadow-lg ring-2 ring-white/20 group-hover:scale-110 transition-transform duration-300`}>
+                      {item.initial}
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-white text-sm leading-tight">{item.name}</h4>
+                      <p className="text-teal-300 text-[11px] font-medium mt-0.5">{item.role}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex w-max rx-track-right">
+              {rowTwoDoubled.map((item, idx) => (
+                <div 
+                  key={`row2-${idx}`}
+                  className="group relative w-[290px] sm:w-[350px] mr-6 flex-shrink-0 rounded-3xl p-6 bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 hover:border-teal-400/50 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300 flex flex-col justify-between"
+                >
+                  <Quote className="absolute top-5 right-5 w-8 h-8 text-teal-400/20 group-hover:text-teal-400/60 group-hover:rotate-12 transition-all duration-300" />
+                  <div>
+                    <div className="flex items-center gap-1 mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                      ))}
+                    </div>
+                    <p className="text-slate-300 text-sm leading-relaxed mb-6">
+                      {item.comment}
+                    </p>
+                  </div>
+                  <div className="pt-4 border-t border-white/10 flex items-center gap-3">
+                    <div className={`w-11 h-11 rounded-full ${item.bgInitial} text-white font-bold text-sm flex items-center justify-center shadow-lg ring-2 ring-white/20 group-hover:scale-110 transition-transform duration-300`}>
+                      {item.initial}
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-white text-sm leading-tight">{item.name}</h4>
+                      <p className="text-teal-300 text-[11px] font-medium mt-0.5">{item.role}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ================= SPEECH THERAPY VIDEO SECTION =================
+export const SpeechTherapyVideoSection = () => {
+  const [activeVideo, setActiveVideo] = useState(speechVideosData[0]);
+  const [autoPlay, setAutoPlay] = useState(false);
+
+  return (
+    <section className="relative py-24 bg-gradient-to-b from-slate-50 to-white overflow-hidden border-t border-slate-200/60">
+      <div className="pointer-events-none absolute -top-24 -right-24 w-80 h-80 rounded-full bg-teal-200/40 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-fuchsia-200/30 blur-3xl" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-end mb-14"
+        >
+          <div className="lg:col-span-7 text-left">
+            <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-teal-600 bg-teal-50 px-3 py-1 rounded-full mb-4">
+              <span className="w-2 h-2 rounded-full bg-teal-500 animate-pulse" />
+              Video Resource Center
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-slate-900 leading-[1.15] tracking-tight">
+              Speech therapy <span className="italic font-semibold text-teal-600">resources</span>
+            </h2>
+            <div className="w-24 h-1 bg-[#162C5A] mt-5 rounded-full" />
+          </div>
+
+          <p className="lg:col-span-5 text-slate-600 text-sm sm:text-base leading-relaxed lg:text-left">
+            Explore helpful videos on language development, communication skills and practical therapy activities for children.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          {/* Main Video Player Screen */}
+          <motion.div 
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="lg:col-span-7"
+          >
+            <div className="relative rounded-[2rem] bg-[#271E38] p-3 sm:p-4 shadow-2xl border border-white/10">
+              <div className="absolute -inset-2 rounded-[2.2rem] bg-gradient-to-tr from-teal-400/20 via-transparent to-fuchsia-400/20 blur-xl opacity-70 pointer-events-none" />
+              
+              <div className="relative aspect-video overflow-hidden rounded-2xl bg-slate-950 border border-white/10">
+                <AnimatePresence mode="wait">
+                  <motion.iframe
+                    key={activeVideo.id}
+                    initial={{ opacity: 0, scale: 0.98 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.4 }}
+                    className="absolute inset-0 w-full h-full"
+                    src={`https://www.youtube.com/embed/${activeVideo.id}?rel=0${autoPlay ? "&autoplay=1" : ""}`}
+                    title={activeVideo.title}
+                    loading="lazy"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                </AnimatePresence>
+              </div>
+
+              <div className="mt-4 px-2 pb-1 text-left flex items-start justify-between gap-4">
+                <div>
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-teal-300 bg-white/10 px-3 py-1 rounded-full backdrop-blur-md">
+                      <ShieldCheck className="w-3.5 h-3.5" /> Expert Speech Session
+                    </span>
+                    <span className="text-xs text-slate-400 font-medium sm:hidden">{activeVideo.duration}</span>
+                  </div>
+                  <h3 className="text-white font-serif text-lg sm:text-xl font-normal leading-snug">
+                    {activeVideo.title}
+                  </h3>
+                  <p className="text-slate-300 text-xs sm:text-sm mt-1.5 leading-relaxed">
+                    {activeVideo.desc}
+                  </p>
+                </div>
+                
+                {/* Direct YouTube Link Button */}
+                <a 
+                  href={activeVideo.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hidden sm:inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 text-teal-300 text-xs px-3.5 py-2 rounded-xl transition-all flex-shrink-0 border border-white/10"
+                  title="Watch on YouTube"
+                >
+                  <span>YouTube</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Video Selection List (4 Videos) */}
+          <motion.div 
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="lg:col-span-5 flex flex-col gap-4"
+          >
+            <div className="flex items-center justify-between px-1">
+              <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-slate-500">
+                Available Resources ({speechVideosData.length})
+              </h4>
+              <span className="text-xs text-teal-600 font-semibold">Click to play here</span>
+            </div>
+
+            {speechVideosData.map((video, index) => {
+              const isActive = activeVideo.id === video.id;
+              return (
+                <motion.button
+                  key={video.id}
+                  onClick={() => { setActiveVideo(video); setAutoPlay(true); }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className={`group text-left w-full p-4 sm:p-5 rounded-2xl transition-all duration-300 flex items-start gap-4 border ${
+                    isActive 
+                      ? "bg-white shadow-xl shadow-teal-500/10 border-teal-500/50 ring-2 ring-teal-500/20" 
+                      : "bg-white/80 hover:bg-white shadow-sm border-slate-200/80 hover:shadow-md"
+                  }`}
+                >
+                  <div className={`relative w-20 sm:w-24 aspect-video rounded-xl flex-shrink-0 flex items-center justify-center overflow-hidden bg-slate-900 ${
+                    isActive ? "ring-2 ring-teal-500" : ""
+                  }`}>
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#162C5A] to-[#271E38] opacity-90 group-hover:scale-105 transition-transform duration-500" />
+                    
+                    {/* Thumbnail Mock / Play Icon */}
+                    <div className={`absolute inset-0 flex items-center justify-center transition-transform ${isActive ? 'scale-110 text-teal-300' : 'text-white/80 group-hover:scale-110 group-hover:text-white'}`}>
+                      <Play className={`w-6 h-6 ${isActive ? 'fill-teal-300 text-teal-300' : ''}`} />
+                    </div>
+                    
+                    <span className="absolute bottom-1 right-1 px-1.5 py-0.5 rounded bg-black/70 text-[9px] font-bold text-white">
+                      {video.duration}
+                    </span>
+                  </div>
+
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-teal-600">
+                        Resource {String(index + 1).padStart(2, "0")}
+                      </span>
+                    </div>
+                    <h4 className={`font-semibold text-sm leading-snug mt-0.5 transition-colors line-clamp-1 ${
+                      isActive ? "text-[#162C5A]" : "text-slate-800 group-hover:text-teal-700"
+                    }`}>
+                      {video.title}
+                    </h4>
+                    <p className="text-slate-500 text-xs leading-relaxed mt-1 line-clamp-2">
+                      {video.desc}
+                    </p>
+                  </div>
+                </motion.button>
+              );
+            })}
+
+            {/* Bottom Booking Banner */}
+            <div className="mt-2 bg-gradient-to-r from-[#162C5A] to-[#271E38] rounded-2xl p-5 text-white shadow-xl flex items-center justify-between">
+              <div>
+                <h5 className="font-serif text-base font-normal">Need personalized speech therapy?</h5>
+                <p className="text-xs text-slate-300 mt-0.5">Book a dedicated consultation session with our specialists.</p>
+              </div>
+              <Link
+                to={BOOK_LINK}
+                className="inline-flex items-center justify-center bg-teal-500 hover:bg-teal-400 text-slate-950 p-3 rounded-xl shadow-lg transition-all flex-shrink-0"
+                title="Book Consultation"
+              >
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </motion.div>
+
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ================= MAIN HOME COMPONENT =================
 const Home = () => {
   return (
     <main className="min-h-screen bg-white overflow-hidden">
-      {/* Hero section */}
       <HeroSection />
       
-      {/* Container for About */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AboutSection />
       </div>
 
-      {/* Mission Banner Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <MissionBannerSection />
       </div>
 
-      {/* Why Choose Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <WhyChooseSection />
       </div>
 
-      {/* Scope of Rex Medical Center Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScopeSection />
       </div>
 
-      {/* Services Section */}
       <ServicesSection />
-
-      {/* Conditions Section */}
       <ConditionsSection />
-
-      {/* Team Carousel Section */}
       <TeamCarouselSection />
-
-      {/* Child Development Assessments Section */}
       <AssessmentSection />
-
-      {/* Journey Steps Section */}
       <JourneyStepsSection />
+      <ReviewsCarouselSection />
+      <SpeechTherapyVideoSection />
     </main>
   );
 };

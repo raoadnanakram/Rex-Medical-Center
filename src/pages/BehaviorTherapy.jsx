@@ -66,7 +66,7 @@ export default function BehaviorTherapy() {
 
           <div className="pt-4 flex flex-wrap justify-center gap-4">
             <Link 
-              to="/book-consult" 
+              to="/book-a-free-consult" 
               className="inline-flex items-center gap-3 bg-[#1c296b] hover:bg-teal-700 text-white font-bold text-xs uppercase tracking-wider px-8 py-4 rounded-full shadow-lg transition-all duration-300 transform hover:-translate-y-1"
             >
               <span>Book ABA Consultation</span>
@@ -232,7 +232,7 @@ export default function BehaviorTherapy() {
             </div>
             <div className="lg:col-span-4 flex lg:justify-end">
               <Link 
-                to="/book-consult" 
+                to="/book-a-free-consult" 
                 className="inline-flex items-center gap-3 bg-teal-500 hover:bg-teal-600 text-slate-900 font-bold text-xs uppercase tracking-wider px-8 py-5 rounded-full shadow-xl transition-all transform hover:scale-105"
               >
                 <span>Book ABA Consultation</span>

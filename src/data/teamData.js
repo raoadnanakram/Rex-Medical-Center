@@ -5,7 +5,7 @@ import naveedImg from '../assets/Naveed.jpg';
 import AsiaImg from '../assets/Asia.jpg';
 import AyazImg from '../assets/Ayaz.jpg';
 import DrImg from '../assets/Dr.PNG';
-
+import contactDr from '../assets/Abdulrehman.jpeg';
 export const teamMembers = [
   {
     id: 1,
@@ -31,7 +31,7 @@ export const teamMembers = [
     category: "SPEECH & LANGUAGE THERAPY",
     image: AsiaImg, // Aapki local image assign ki gayi hai
     qualification: "MS. Speech & Language Pathology . Certified Audiometrist (GTCTD)",
-    experience: "6+ Years",
+    experience: "5+ Years",
     specialization: "Behavior Modification & Skill Acquisition",
     expertise: [
       "Autism Support",
@@ -65,7 +65,7 @@ export const teamMembers = [
     category: "Physiotherapy", // Ya aap apni marzi ki category rakh sakte hain
     image: AyazImg,
     qualification: "M.B.B.S, F.C.P.S. (Surgery) | Fellow FCPS HPB/Liver Transplant Surgery",
-    experience: "10+ Years",
+    experience: "8+ Years",
     specialization: "HPB & Liver Transplant Surgery",
     expertise: [
       "HPB Surgery",
@@ -82,7 +82,7 @@ export const teamMembers = [
     category: "ABA Therapy", // Ya aap apni marzi ki category rakh sakte hain (jaise agar alag category ho)
     image: DrImg,
     qualification: "MS. Speech & Language Pathology | PGD Speech (GTCTD)",
-    experience: "7+ Years",
+    experience: "3+ Years",
     specialization: "Speech & Language Disorders",
     expertise: [
       "Speech Therapy",
@@ -92,31 +92,14 @@ export const teamMembers = [
     ],
     bio: "Hafiz M. Tahir Zia is an experienced Consultant Speech & Language Pathologist holding an MS in Speech & Language Pathology and PGD Speech (GTCTD). He is dedicated to helping individuals overcome communication challenges and develop clear, confident speech skills."
   },
-  {
-    id: 5,
-    name: "Dr. Muhammad Arqam",
-    designation: "Pediatric Physiotherapist",
-    category: "Physiotherapy",
-    image: AyazImg, // Aapki local image assign ki gayi hai
-    qualification: "Doctor of Physical Therapy (DPT)",
-    experience: "6+ Years",
-    specialization: "Gross Motor Development & Balance",
-    expertise: [
-      "Neuromuscular Rehabilitation",
-      "Gait & Balance Training",
-      "Posture Correction",
-      "Gross Motor Skills"
-    ],
-    bio: "Dr. Muhammad Arqam focuses on enhancing physical strength, posture, coordination, and mobility in children with developmental and neurological conditions."
-  },
 {
     id: 6,
     name: "Dr. Abbas Aftab",
     designation: "Consultant Medical Physician & Neurologist",
     category: "Physiotherapy", // Aap apni zaroorat ke mutabiq category change kar sakte hain
-    image: DrImg, // Aapki local image
+    image: AftabImg, // Aapki local image
     qualification: "M.B.B.S, F.C.P.S. (Medicine)",
-    experience: "8+ Years",
+    experience: "15+ Years",
     specialization: "Neurology & Internal Medicine",
     expertise: [
       "Consultant Medical Physician",
@@ -125,5 +108,22 @@ export const teamMembers = [
       "Family Medicine"
     ],
     bio: "Dr. Abbas Aftab is an experienced Consultant Medical Physician and Neurologist at General Hospital Lahore[cite: 1], specializing in comprehensive medical care, neurological diagnostics, and expert patient management."
+  },
+  {
+    id: 7, // Aap apni zaroorat ke mutabiq ID set kar sakte hain
+    name: "Dr. Abdur Rehman",
+    designation: "Clinical Nutritionist & Specialist",
+    category: "Nutrition & Wellness", // Aap category apne hisaab se rakh sakte hain
+    image: contactDr,
+    qualification: "PhD Nutrition, B.S. Natural Sciences",
+    experience: "10+ Years",
+    specialization: "Therapeutic Nutrition & Child Growth Support",
+    expertise: [
+      "Clinical Nutrition",
+      "Therapeutic Diet Plans",
+      "Child Growth & Vitality",
+      "Natural Healing Support"
+    ],
+    bio: "Dr. Abdur Rehman brings over 10+ years of dedicated clinical experience with a PhD in Nutrition and a B.S. in Natural Sciences. His inspiring professional journey is driven by a deep passion for transforming lives through therapeutic nutrition. He empowers families with customized dietary strategies, helping children and individuals unlock their true growth, vitality, and healing potential for a healthier tomorrow."
   }
-];
+  ];

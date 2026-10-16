@@ -81,7 +81,7 @@ export default function Services() {
           className="flex flex-wrap justify-center items-center gap-4 mt-8"
         >
           <Link 
-            to="/book-consult"
+            to="/book-a-free-consult"
             className="inline-flex items-center gap-3 bg-[#1c296b] hover:bg-red-600 text-white font-bold text-sm px-8 py-3.5 rounded-full shadow-lg transition-all duration-300 transform hover:-translate-y-1 group"
           >
             <span>Book a Consultation</span>
@@ -273,7 +273,7 @@ export default function Services() {
 
             <div className="pt-4">
               <Link 
-                to="/book-consult"
+                to="/book-a-free-consult"
                 className="inline-flex items-center gap-3 bg-[#1c296b] hover:bg-red-600 text-white font-bold text-xs uppercase tracking-wider px-8 py-4 rounded-full shadow-lg transition-all duration-300 transform hover:-translate-y-1 group"
               >
                 <span>Book a Consultation</span>

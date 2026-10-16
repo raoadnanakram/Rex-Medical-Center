@@ -114,7 +114,7 @@ export default function SpeechTherapy() {
 
             <div className="pt-6 flex flex-wrap items-center gap-4">
               <Link 
-                to="/book-consult" 
+                to="/book-a-free-consult" 
                 className="inline-flex items-center gap-3 bg-[#1c296b] hover:bg-teal-700 text-white font-bold text-xs uppercase tracking-wider px-8 py-4 rounded-full shadow-lg transition-all duration-300 transform hover:-translate-y-1"
               >
                 <span>Book Speech Consultation</span>
@@ -256,7 +256,7 @@ export default function SpeechTherapy() {
             </div>
             <div className="lg:col-span-4 flex justify-lg-end">
               <Link 
-                to="/book-consult" 
+                to="/book-a-free-consult" 
                 className="inline-flex items-center gap-3 bg-[#1c296b] hover:bg-teal-700 text-white font-bold text-xs uppercase tracking-wider px-8 py-5 rounded-full shadow-xl transition-all transform hover:scale-105"
               >
                 <span>Schedule Evaluation</span>
