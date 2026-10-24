@@ -45,7 +45,7 @@ export default function Contact() {
       if (response.ok) {
         setSubmitted(true);
       } else {
-        setError(data.message || 'Kuch masla ho gaya hai. Dobara koshish karein.');
+        setError(`${data.message || 'Something went wrong.'} You can also call ${PHONES.main.display} or WhatsApp ${PHONES.whatsapp.display}.`);
       }
     } catch (err) {
       console.error('Network Error:', err);
@@ -102,19 +102,18 @@ export default function Contact() {
 
           {/* Contact Numbers & Email Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <a 
-              href={PHONES.main.href} 
-              className="p-5 bg-white/95 rounded-2xl shadow-sm border border-slate-200/70 hover:border-[#1c296b] transition-all duration-300 flex items-center gap-4 group"
+            <div 
+              className="relative p-5 bg-white/95 rounded-2xl shadow-sm border border-slate-200/70 hover:border-[#1c296b] transition-all duration-300 flex items-center gap-4 group"
             >
               <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#1c296b] flex items-center justify-center group-hover:bg-[#1c296b] group-hover:text-white transition-colors">
                 <Phone className="w-5 h-5" />
               </div>
               <div>
                 <p className="text-xs text-slate-400 font-semibold uppercase">Call Us</p>
-                <p className="text-sm font-bold text-slate-800">{PHONES.main.display}</p>
-                <p className="text-xs text-slate-500">{PHONES.landline.label}: {PHONES.landline.display}</p>
+                <a href={PHONES.main.href} className="text-sm font-bold text-slate-800 after:absolute after:inset-0 after:rounded-2xl">{PHONES.main.display}</a>
+                <p className="text-xs text-slate-500">{PHONES.landline.label}: <a href={PHONES.landline.href} className="relative z-10 hover:underline">{PHONES.landline.display}</a></p>
               </div>
-            </a>
+            </div>
 
             <a 
               href={PHONES.whatsapp.href} 

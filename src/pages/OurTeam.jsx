@@ -398,7 +398,8 @@ export default function OurTeam() {
     "ABA THERAPY",
     "OCCUPATIONAL THERAPY",
     "PHYSIOTHERAPY",
-    "SENSORY THERAPY"
+    "SENSORY THERAPY",
+    "SPECIALIST CONSULTATIONS"
   ];
 
   const filteredExperts = selectedCategory === "ALL EXPERTS"

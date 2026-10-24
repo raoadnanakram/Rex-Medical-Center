@@ -190,15 +190,23 @@ export default function BookConsult() {
       else if (key.includes('specialist')) service = 'Specialist Consultation';
       else if (key.includes('nutrition')) service = 'Nutrition';
     }
-    if (!service) return;
+    // Experts without a booking-roster entry (e.g. ABA, psychology) are kept in the message
+    // so the clinic still sees who the visitor asked for.
+    const expertName = (expertParam || '').replace(/-/g, ' ').trim();
+    const serviceName = (serviceParam || '').replace(/-/g, ' ').trim();
+    const note = !doctor && expertName
+      ? `I'd like to book with ${expertName}${serviceName ? ` (${serviceName})` : ''}.`
+      : '';
+    if (!service && !note) return;
 
     // Runs once after hydration so the prerendered HTML (no query string) still matches.
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setFormData((prev) => ({
       ...prev,
-      service,
+      service: service || prev.service,
       doctor: doctor ? doctor.name : '',
       location: doctor && doctor.locations.length === 1 ? doctor.locations[0].name : '',
+      message: note && !prev.message ? note : prev.message,
     }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
@@ -275,7 +283,7 @@ export default function BookConsult() {
       if (response.ok) {
         setSubmitted(true);
       } else {
-        setError(data.message || 'Something went wrong. Please try again.');
+        setError(`${data.message || 'Something went wrong.'} You can also call ${PHONES.main.display} or WhatsApp ${PHONES.whatsapp.display} to book.`);
       }
     } catch (err) {
       console.error('Network Error:', err);

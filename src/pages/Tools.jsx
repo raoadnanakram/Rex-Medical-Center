@@ -237,8 +237,10 @@ const ProductVisual = ({ p, className = "", emojiClass = "text-6xl" }) => (
 //  MAIN COMPONENT
 // ============================================================
 export default function ShopPage() {
-  const [cart, setCart] = useState(() => safeLoad("rex_shop_cart", []));
-  const [wishlist, setWishlist] = useState(() => safeLoad("rex_shop_wishlist", []));
+  // Start empty like the prerendered HTML, then restore saved data after hydration.
+  const [cart, setCart] = useState([]);
+  const [wishlist, setWishlist] = useState([]);
+  const [restored, setRestored] = useState(false);
   const [category, setCategory] = useState("All");
   const [search, setSearch] = useState("");
   const [maxPrice, setMaxPrice] = useState(MAX_PRICE);
@@ -257,8 +259,14 @@ export default function ShopPage() {
     fullName: "", phone: "", email: "", city: "Lahore", address: "", notes: "", payment: "cod",
   });
 
-  useEffect(() => safeSave("rex_shop_cart", cart), [cart]);
-  useEffect(() => safeSave("rex_shop_wishlist", wishlist), [wishlist]);
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setCart(safeLoad("rex_shop_cart", []));
+    setWishlist(safeLoad("rex_shop_wishlist", []));
+    setRestored(true);
+  }, []);
+  useEffect(() => { if (restored) safeSave("rex_shop_cart", cart); }, [cart, restored]);
+  useEffect(() => { if (restored) safeSave("rex_shop_wishlist", wishlist); }, [wishlist, restored]);
   useEffect(() => { setVisible(PAGE_SIZE); }, [category, search, maxPrice, age, sortBy]);
   useEffect(() => { window.scrollTo({ top: 0, behavior: "smooth" }); }, [step]);
 

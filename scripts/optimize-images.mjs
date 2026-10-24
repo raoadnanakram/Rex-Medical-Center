@@ -22,7 +22,10 @@ for (const file of fs.readdirSync(dir)) {
 
   const out = await pipeline.toBuffer();
   if (out.length < before * 0.9) {
-    fs.writeFileSync(full, out);
+    // Write beside the original, then rename, so an interrupted run never leaves a half-written image.
+    const tmp = `${full}.tmp`;
+    fs.writeFileSync(tmp, out);
+    fs.renameSync(tmp, full);
     console.log(`${file.padEnd(28)} ${(before / 1024) | 0} KB -> ${(out.length / 1024) | 0} KB`);
   }
 }
