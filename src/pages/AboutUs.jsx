@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, HeartHandshake, ShieldCheck, Sparkles, Target, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -9,7 +9,7 @@ import NaveedImg from '../assets/Naveed.jpg';
 import usmanImg from '../assets/Usman.jpg';
 import AsiaImg from '../assets/Asia.jpg';
 import AyazImg from '../assets/Ayaz.jpg';
-import DrImg from '../assets/Dr.PNG';
+import DrImg from '../assets/Dr.png';
 import contact1Img from '../assets/contact1.jpg';
 
 export default function AboutUs() {
@@ -84,7 +84,7 @@ export default function AboutUs() {
             Compassionate Child Development Support
           </h2>
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Rex Medical Center in Lahore is a specialized child therapy and developmental support center dedicated to helping children improve communication, behavior, learning, sensory processing, and everyday life skills through evidence-based therapy services and personalized programs.
+            REX Medical Complex in Lahore is a specialized child therapy and developmental support center dedicated to helping children improve communication, behavior, learning, sensory processing, and everyday life skills through evidence-based therapy services and personalized programs.
           </p>
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
             As a multidisciplinary therapy center, we work with children experiencing developmental delays, autism spectrum disorder, speech difficulties, and sensory challenges to help every child unlock their fullest potential.
@@ -130,11 +130,11 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* 4. Section: What Scope Rex Medical Center Has */}
+      {/* 4. Section: What Scope REX Medical Complex Has */}
       <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <span className="text-sky-600 font-bold text-xs uppercase tracking-widest bg-sky-50 px-3 py-1 rounded-full border border-sky-100">Our Clinical Scope</span>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-900 mt-3 mb-3">What Scope Rex Medical Center Offers</h2>
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-900 mt-3 mb-3">What Scope REX Medical Complex Offers</h2>
           <p className="text-slate-600 text-sm sm:text-base">Comprehensive developmental domains managed by our seasoned pediatric experts.</p>
         </div>
 
@@ -154,12 +154,12 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* 5. Section: Why Choose Rex Medical Center */}
+      {/* 5. Section: Why Choose REX Medical Complex */}
       <section className="py-20 bg-indigo-950 text-white px-4 sm:px-6 lg:px-8 mb-20 shadow-2xl rounded-none sm:rounded-[3rem] max-w-7xl mx-auto">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-emerald-400 font-bold text-xs uppercase tracking-widest bg-emerald-950/50 px-3 py-1 rounded-full border border-emerald-800/50">Excellence in Care</span>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold mt-3 mb-3 text-white">Why Choose Rex Medical Center</h2>
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold mt-3 mb-3 text-white">Why Choose REX Medical Complex</h2>
             <p className="text-indigo-200 text-sm sm:text-base">We combine modern clinical infrastructure with deep empathy and proven therapeutic results.</p>
           </div>
 

@@ -1,7 +1,7 @@
-import React from 'react';
+
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle2, Phone, ChevronRight } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // Lokale Bilder importieren
 import speechImg from '../assets/SpeechlanguageTherapy.jpg';
@@ -9,10 +9,12 @@ import abaImg from '../assets/ABATherapy.jpg';
 import occupationalImg from '../assets/OccupationalTherapy.jpg';
 import physiotherapyImg from '../assets/Physiotherapy.jpg';
 import familyImg from '../assets/family.jpg';
-import consultantImg from '../assets/consultant.jpg';
+import consultantImg from '../assets/Consultant.jpg';
+import { PHONES } from '../data/business';
+
+const MotionLink = motion.create(Link);
 
 export default function Services() {
-  const navigate = useNavigate();
 
   const servicesList = [
     {
@@ -91,13 +93,13 @@ export default function Services() {
           </Link>
 
           <a 
-            href="https://wa.me/+92 324 4409-797"
+            href={PHONES.whatsapp.href}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 bg-white/95 backdrop-blur-md px-6 py-3.5 rounded-full text-slate-800 text-sm font-bold shadow-md hover:bg-emerald-50 hover:text-emerald-700 transition-all border border-slate-200"
           >
             <Phone className="w-4 h-4 text-emerald-600" />
-            <span>+(92) 324 4409-797</span>
+            <span>{PHONES.whatsapp.label}: {PHONES.whatsapp.display}</span>
           </a>
         </motion.div>
       </div>
@@ -105,14 +107,14 @@ export default function Services() {
       {/* Row 1: 3 Equal-Sized Cards */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
         {servicesList.slice(0, 3).map((service, idx) => (
-          <motion.div
+          <MotionLink
             key={idx}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: idx * 0.1 }}
             whileHover={{ y: -8 }}
-            onClick={() => navigate(service.link)}
+            to={service.link}
             className="bg-white/95 backdrop-blur-md rounded-[2.5rem] overflow-hidden shadow-xl border border-teal-100/60 flex flex-col justify-between group cursor-pointer"
           >
             {/* Image Box with object-contain to ensure full picture is visible */}
@@ -155,21 +157,21 @@ export default function Services() {
                 </span>
               </div>
             </div>
-          </motion.div>
+          </MotionLink>
         ))}
       </div>
 
       {/* Row 2: 2 Equal-Sized Cards (Centered) */}
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
         {servicesList.slice(3, 5).map((service, idx) => (
-          <motion.div
+          <MotionLink
             key={idx}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: (idx + 3) * 0.1 }}
             whileHover={{ y: -8 }}
-            onClick={() => navigate(service.link)}
+            to={service.link}
             className="bg-white/95 backdrop-blur-md rounded-[2.5rem] overflow-hidden shadow-xl border border-teal-100/60 flex flex-col justify-between group cursor-pointer"
           >
             {/* Image Box with object-contain */}
@@ -212,7 +214,7 @@ export default function Services() {
                 </span>
               </div>
             </div>
-          </motion.div>
+          </MotionLink>
         ))}
       </div>
 
@@ -287,7 +289,7 @@ export default function Services() {
           <div className="lg:col-span-6 relative h-80 sm:h-96 rounded-3xl overflow-hidden shadow-xl bg-white p-3 border border-slate-100 flex items-center justify-center">
             <img 
               src={familyImg} 
-              alt="Family therapy session at Rex Medical Center" 
+              alt="Family therapy session at REX Medical Complex" 
               className="w-full h-full object-contain object-center rounded-2xl transform hover:scale-105 transition-transform duration-700"
             />
           </div>

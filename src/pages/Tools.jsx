@@ -1,18 +1,40 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { PHONES } from '../data/business';
 import {
-  Search, Heart, ShoppingCart, SlidersHorizontal, X, Plus, Minus, Trash2,
-  ArrowRight, Check, ShieldCheck, Truck, RotateCcw, Headphones, Lock,
-  Sparkles, Mic, Wind, BookOpen, Layers, Palette, Brain, Eye, Banknote,
-  MessageCircle, Package, ChevronDown, Users
+  Search,
+  Heart,
+  ShoppingCart,
+  SlidersHorizontal,
+  X,
+  Plus,
+  Minus,
+  Trash2,
+  ArrowRight,
+  Check,
+  ShieldCheck,
+  Truck,
+  Headphones,
+  Lock,
+  Sparkles,
+  Mic,
+  Wind,
+  BookOpen,
+  Layers,
+  Palette,
+  Brain,
+  Eye,
+  Banknote,
+  Package,
+  ChevronDown,
+  Users,
 } from 'lucide-react';
 
 // ============================================================
-//  SETTINGS  (yahan apna asli WhatsApp number likhein)
-//  Format: country code + number, bina + ya space ke. e.g. 923001234567
+//  SETTINGS  (orders go to the clinic WhatsApp number in src/data/business.js)
 // ============================================================
-const WHATSAPP_NUMBER = "923000000000";
+const WHATSAPP_NUMBER = PHONES.whatsapp.number;
 const FREE_SHIPPING_ABOVE = 5000;
 const SHIPPING_FEE = 250;
 const CURRENCY = "Rs.";
@@ -448,7 +470,7 @@ export default function ShopPage() {
                   {[
                     { n: "60+", l: "Therapy products" },
                     { n: "6", l: "Categories" },
-                    { n: "4000+", l: "Children supported" },
+                    { n: "4.8★", l: "Google rating" },
                   ].map((s, i) => (
                     <motion.div
                       key={s.l}

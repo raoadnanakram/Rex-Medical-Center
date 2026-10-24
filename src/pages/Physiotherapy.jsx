@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle2, Phone, Award, Activity, HeartHandshake, ShieldCheck, UserCheck, Sparkles, ChevronDown } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Phone, Award, ChevronDown } from 'lucide-react';
+import { PHONES } from '../data/business';
 
 const physioHeroImg = "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&q=80&w=800";
-const physioRehabImg = "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=800";
 
 export default function Physiotherapy() {
   const [openFaq, setOpenFaq] = useState(null);
@@ -98,14 +98,14 @@ export default function Physiotherapy() {
 
           <div className="pt-4 flex flex-wrap justify-center gap-4">
             <Link 
-              to="/book-consult" 
+              to="/book-a-free-consult" 
               className="inline-flex items-center gap-3 bg-[#1c296b] hover:bg-teal-700 text-white font-bold text-xs uppercase tracking-wider px-8 py-4 rounded-full shadow-lg transition-all duration-300 transform hover:-translate-y-1"
             >
               <span>Book Consultation</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <a 
-              href="https://wa.me/923276680954" 
+              href={PHONES.whatsapp.href} 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-white px-6 py-4 rounded-full text-slate-800 text-xs font-bold shadow-md hover:bg-emerald-50 hover:text-emerald-700 transition-all border border-slate-200"
@@ -261,7 +261,7 @@ export default function Physiotherapy() {
                   </div>
                 </div>
                 <div className="pt-4 border-t border-slate-100">
-                  <Link to="/book-consult" className="inline-flex items-center gap-2 text-[#1c296b] font-bold text-xs uppercase tracking-wider hover:text-teal-700">
+                  <Link to="/book-a-free-consult" className="inline-flex items-center gap-2 text-[#1c296b] font-bold text-xs uppercase tracking-wider hover:text-teal-700">
                     <span>Get Started</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
@@ -394,7 +394,7 @@ export default function Physiotherapy() {
             </div>
             <div className="lg:col-span-4 flex lg:justify-end">
               <Link 
-                to="/book-consult" 
+                to="/book-a-free-consult" 
                 className="inline-flex items-center gap-3 bg-teal-500 hover:bg-teal-600 text-slate-900 font-bold text-xs uppercase tracking-wider px-8 py-5 rounded-full shadow-xl transition-all transform hover:scale-105"
               >
                 <span>Book Consultation</span>

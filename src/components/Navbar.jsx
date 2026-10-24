@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -13,8 +13,8 @@ function Navbar() {
     { name: 'Speech & Language Therapy', path: '/services/speech-therapy' },
     { name: 'Occupational Therapy & Sensory Integration', path: '/services/occupational-therapy' },
     { name: 'Physiotherapy', path: '/services/physiotherapy' },
-    { name: 'Sensorytherapy', path: '/services/sensorytherapy' },
-        { name: 'Playtherapy', path: '/services/playtherapy' },
+    { name: 'Sensory Therapy', path: '/services/sensory-therapy' },
+        { name: 'Play Therapy', path: '/services/play-therapy' },
     { name: 'Specialist Doctor Consultations', path: '/services/specialist-consultations' },
 
   ];
@@ -40,7 +40,7 @@ function Navbar() {
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
               src="/logo.png" 
-              alt="Rex Medical Centre" 
+              alt="REX Medical Complex" 
               className="h-16 sm:h-20 w-auto drop-shadow-sm" 
             />
           </Link>
@@ -136,7 +136,7 @@ function Navbar() {
               </AnimatePresence>
             </div>
             {/* ------------------------------- */}
-   <Link to="/Tools" className="relative group py-1 hover:text-[#1c296b] transition-colors duration-200">
+   <Link to="/therapy-tools" className="relative group py-1 hover:text-[#1c296b] transition-colors duration-200">
               Tools
               <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-[#1c296b] transition-all duration-300 group-hover:w-full"></span>
             </Link>
@@ -164,7 +164,7 @@ function Navbar() {
       
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
               <Link 
-                to="/donat-now" 
+                to="/donate" 
                 className="inline-flex items-center gap-1.5 bg-red-600 hover:bg-red-700 text-white text-sm font-bold px-5 py-3 rounded-full transition-all duration-300 shadow-md hover:shadow-red-600/40"
               >
                 <span className="text-lg font-bold">+</span>
@@ -238,7 +238,7 @@ function Navbar() {
                className="relative overflow-hidden bg-[#1c296b] hover:bg-red-600 text-white text-base font-bold px-8 py-3.5 rounded-full transition-all duration-300 shadow-lg hover:shadow-red-600/40 transform hover:-translate-y-0.5 active:translate-y-0 text-center block">
                 Book Appointment
               </Link>
-              <Link to="/donat-now" onClick={() => setIsOpen(false)} className="flex items-center justify-center gap-1.5 text-center bg-red-600 hover:bg-red-700 text-white text-sm font-bold px-6 py-3 rounded-full shadow-md transition-all duration-300">
+              <Link to="/donate" onClick={() => setIsOpen(false)} className="flex items-center justify-center gap-1.5 text-center bg-red-600 hover:bg-red-700 text-white text-sm font-bold px-6 py-3 rounded-full shadow-md transition-all duration-300">
                 <span className="text-lg font-bold">+</span>
                 <span>Donate Now</span>
               </Link>

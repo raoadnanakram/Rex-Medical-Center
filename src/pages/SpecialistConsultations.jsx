@@ -1,6 +1,7 @@
-import React from 'react';
+
 import { motion } from 'framer-motion';
 import { Sparkles, ArrowRight, Phone, Stethoscope, CheckCircle2, Calendar, MapPin, Clock } from 'lucide-react';
+import { PHONES } from '../data/business';
 
 const BOOK_LINK = '/book-a-free-consult';
 
@@ -54,13 +55,13 @@ export default function SpecialistDoctors() {
             className="lg:col-span-7 space-y-6"
           >
             <span className="bg-teal-500/20 text-teal-300 border border-teal-500/30 text-xs font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full inline-block">
-              Rex Medical Complex
+              REX Medical Complex
             </span>
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight leading-tight">
               Specialist Consultant <span className="italic text-teal-300 font-semibold">Doctors</span>
             </h1>
             <p className="text-slate-300 text-base sm:text-lg max-w-xl leading-relaxed">
-              Consult with our experienced and fully qualified MBBS doctors at Rex Medical Complex, Lahore. Professional care and personalized treatment for you and your family.
+              Consult with our experienced and fully qualified MBBS doctors at REX Medical Complex, Lahore. Professional care and personalized treatment for you and your family.
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-4">
@@ -75,13 +76,13 @@ export default function SpecialistDoctors() {
               </a>
 
               <a 
-                href="https://wa.me/+923244409797" 
+                href={PHONES.whatsapp.href} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white font-bold text-sm px-6 py-4 rounded-full shadow-lg transition-all"
               >
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-                <span>+92 324 4409797</span>
+                <span>{PHONES.whatsapp.label}: {PHONES.whatsapp.display}</span>
               </a>
             </div>
           </motion.div>
@@ -133,7 +134,7 @@ export default function SpecialistDoctors() {
           {[
             { label: "Qualified Doctors", value: "MBBS Experts" },
             { label: "Consultation Hours", value: "Mon - Fri" },
-            { label: "Patient Satisfaction", value: "99%" },
+            { label: "Google Rating", value: "4.8 / 5" },
             { label: "Hospital Location", value: "Allama Iqbal Town" }
           ].map((stat, idx) => (
             <motion.div 
@@ -208,7 +209,7 @@ export default function SpecialistDoctors() {
             {[
               { step: "01", title: "Choose doctor", desc: "Browse our qualified specialist doctors and select the right fit for your consultation." },
               { step: "02", title: "Select date & slot", desc: "Pick your preferred timing slot according to the doctor's availability schedule." },
-              { step: "03", title: "Visit & get treated", desc: "Confirm your appointment and visit Rex Medical Complex for expert care." }
+              { step: "03", title: "Visit & get treated", desc: "Confirm your appointment and visit REX Medical Complex for expert care." }
             ].map((stepItem, idx) => (
               <motion.div 
                 key={idx}
@@ -341,18 +342,18 @@ export default function SpecialistDoctors() {
               We are always here to <span className="italic font-semibold text-teal-300">help you</span>
             </h2>
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-              Reach out to Rex Medical Complex for immediate assistance, inquiries, or appointment scheduling.
+              Reach out to REX Medical Complex for immediate assistance, inquiries, or appointment scheduling.
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
               <a 
-                href="https://wa.me/+923244409797" 
+                href={PHONES.whatsapp.href} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 bg-white hover:bg-red-600 text-[#1c296b] hover:text-white font-bold text-sm px-8 py-4 rounded-full shadow-xl transition-all duration-300"
               >
                 <Phone className="w-4 h-4" />
-                <span>+92 324 4409797</span>
+                <span>{PHONES.whatsapp.label}: {PHONES.whatsapp.display}</span>
               </a>
 
               <a 

@@ -1,20 +1,23 @@
-import React, { useState, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { 
-  ArrowRight, CheckCircle2, Phone, Award, ShieldCheck, 
-  HeartHandshake, Sparkles, Activity, Brain, Smile, 
-  ChevronDown, Quote, Star, Users, Compass, Volume2, Feather
+import {
+  ArrowRight,
+  CheckCircle2,
+  Phone,
+  Award,
+  Quote,
+  Star,
 } from 'lucide-react';
 import abaHeroImg from '../assets/ABATherapy.jpg';
+import { PHONES } from '../data/business';
 
 // ==========================================
-// REX MEDICAL CENTER: PLAY THERAPY PAGE
+// REX MEDICAL COMPLEX: PLAY THERAPY PAGE
 // ==========================================
 
 export default function PlayTherapy() {
   const [activeTab, setActiveTab] = useState(0);
-  const [openFaq, setOpenFaq] = useState(null);
 
   const focusAreas = [
     { title: "Exploration", desc: "Encouraging curiosity and safe discovery through interactive play." },
@@ -104,7 +107,7 @@ export default function PlayTherapy() {
   ];
 
   const clinicalMilestones = [
-    { stat: "100%", label: "Child-Centered Focus" },
+    { stat: "Child-led", label: "Child-Centered Focus" },
     { stat: "5+", label: "Core Developmental Domains" },
     { stat: "1-on-1", label: "Dedicated Attention" },
     { stat: "24/7", label: "Clinical Excellence Support" }
@@ -147,7 +150,7 @@ export default function PlayTherapy() {
               <ArrowRight className="w-4 h-4" />
             </Link>
             <a 
-              href="https://wa.me/923276680954" 
+              href={PHONES.whatsapp.href} 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-white px-6 py-4 rounded-full text-slate-800 text-xs font-bold shadow-md hover:bg-emerald-50 hover:text-emerald-700 transition-all border border-slate-200"

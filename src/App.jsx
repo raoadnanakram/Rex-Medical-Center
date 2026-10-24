@@ -1,31 +1,15 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 
 // Import Layout Components
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import Seo from './components/Seo';
 
-// Import Main Pages
-import Home from './pages/Home';
-import AboutUs from './pages/AboutUs';
-import Services from './pages/Services';
-import Tools from './pages/Tools';
-import Conditions from './pages/Conditions';
-import Contact from './pages/Contact';
-import BookConsult from './pages/BookConsult';
-import DonateNow from './pages/DonateNow';
-
-// Import Service Subpages
-import SpeechTherapy from './pages/SpeechTherapy';
-import BehaviorTherapy from './pages/BehaviorTherapy';
-import OccupationalTherapy from './pages/OccupationalTherapy';
-import Physiotherapy from './pages/Physiotherapy';
-import Sensorytherapy from './pages/Sensorytherapy';
-import Playtherapy from './pages/Playtherapy';
-import SpecialistConsultations from './pages/SpecialistConsultations';
-import OurTeam from './pages/OurTeam';
-import AdminLogin from './pages/AdminLogin';
-import AdminDashboard from './pages/AdminDashboard';
+// Pages are code-split; see routes.jsx
+import { pageRoutes, isAdminPath } from './routes';
+import { redirects } from './data/seoRoutes';
+import NotFound from './pages/NotFound';
 
 function GlobalScrollToTop() {
   const { pathname } = useLocation();
@@ -100,10 +84,7 @@ function GlobalScrollToTop() {
 function LayoutWrapper() {
   const location = useLocation();
   
-  const isAdminRoute = 
-    location.pathname.startsWith('/admin') || 
-    location.pathname === '/admin-login' || 
-    location.pathname === '/admin-dashboard';
+  const isAdminRoute = isAdminPath(location.pathname);
 
   return (
     <div className="flex flex-col min-h-screen bg-white font-sans antialiased text-slate-800">
@@ -111,27 +92,13 @@ function LayoutWrapper() {
 
       <div className="flex-grow">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/Tools" element={<Tools />} />
-          <Route path="/conditions" element={<Conditions />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/book-a-free-consult" element={<BookConsult />} />
-          <Route path="/donat-now" element={<DonateNow />} />
-          
-          <Route path="/admin" element={<AdminLogin />} />
-          <Route path="/admin-login" element={<AdminLogin />} />
-          <Route path="/admin-dashboard" element={<AdminDashboard />} />
-
-          <Route path="/services/speech-therapy" element={<SpeechTherapy />} />
-          <Route path="/services/behavior-therapy" element={<BehaviorTherapy />} />
-          <Route path="/services/occupational-therapy" element={<OccupationalTherapy />} />
-          <Route path="/services/physiotherapy" element={<Physiotherapy />} />
-          <Route path="/services/sensorytherapy" element={<Sensorytherapy />} />
-          <Route path="/services/playtherapy" element={<Playtherapy />} />
-          <Route path="/services/specialist-consultations" element={<SpecialistConsultations />} />
-          <Route path="/about/our-team" element={<OurTeam />} />
+          {pageRoutes.map(({ path, Component, props }) => (
+            <Route key={path} path={path} element={<Component {...props} />} />
+          ))}
+          {Object.entries(redirects).map(([from, to]) => (
+            <Route key={from} path={from} element={<Navigate to={to} replace />} />
+          ))}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
 
@@ -140,11 +107,14 @@ function LayoutWrapper() {
   );
 }
 
+// The router is supplied by the entry point: BrowserRouter in main.jsx,
+// StaticRouter in entry-server.jsx for build-time prerendering.
 export default function App() {
   return (
-    <Router>
+    <>
+      <Seo />
       <GlobalScrollToTop />
       <LayoutWrapper />
-    </Router>
+    </>
   );
 }

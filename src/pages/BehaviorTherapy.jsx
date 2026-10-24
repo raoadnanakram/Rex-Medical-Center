@@ -1,8 +1,9 @@
-import React from 'react';
+
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle2, Phone, Award, ShieldCheck, HeartHandshake, Sparkles, Activity } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Phone, Award } from 'lucide-react';
 import abaHeroImg from '../assets/ABATherapy.jpg';
+import { PHONES } from '../data/business';
 
 
 
@@ -73,7 +74,7 @@ export default function BehaviorTherapy() {
               <ArrowRight className="w-4 h-4" />
             </Link>
             <a 
-              href="https://wa.me/923276680954" 
+              href={PHONES.whatsapp.href} 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-white px-6 py-4 rounded-full text-slate-800 text-xs font-bold shadow-md hover:bg-emerald-50 hover:text-emerald-700 transition-all border border-slate-200"

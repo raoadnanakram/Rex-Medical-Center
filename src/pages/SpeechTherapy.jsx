@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle2, Phone, Mic, MessageCircle, Sparkles, Volume2, Award, Users, HeartHandshake, HelpCircle } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Phone, Mic, MessageCircle, Sparkles, Volume2, Award, Users } from 'lucide-react';
 import occupationalImg from '../assets/OccupationalTherapy.jpg';
 import occupationalImg1 from '../assets/Occupational.jpg';
+import { PHONES } from '../data/business';
 
 
 
@@ -54,7 +55,7 @@ export default function SpeechTherapy() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-50 border border-teal-100 text-[#1c296b] font-bold text-xs uppercase tracking-[0.25em] shadow-sm mb-4">
             <Award className="w-4 h-4 text-teal-600" />
-            Rex Medical Center Center of Excellence
+            REX Medical Complex Center of Excellence
           </div>
           <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal text-slate-900 tracking-tight mb-6">
             Empowering Voices Through <span className="italic font-serif text-teal-700">Speech Therapy</span>
@@ -95,7 +96,7 @@ export default function SpeechTherapy() {
               Every Child Deserves to Express Themselves Freely
             </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              At Rex Medical Center, our speech-language program bridges the gap between thoughts and words. Whether overcoming developmental delays or pronunciation hurdles, our specialists cultivate a nurturing atmosphere designed for accelerated progress.
+              At REX Medical Complex, our speech-language program bridges the gap between thoughts and words. Whether overcoming developmental delays or pronunciation hurdles, our specialists cultivate a nurturing atmosphere designed for accelerated progress.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
@@ -121,7 +122,7 @@ export default function SpeechTherapy() {
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <a 
-                href="https://wa.me/923276680954" 
+                href={PHONES.whatsapp.href} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-white px-6 py-4 rounded-full text-slate-800 text-xs font-bold shadow-md hover:bg-emerald-50 hover:text-emerald-700 transition-all border border-slate-200"
@@ -212,7 +213,7 @@ export default function SpeechTherapy() {
               Collaborative Care With Behavior & Occupational Teams
             </h3>
             <p className="text-slate-200 text-sm sm:text-base leading-relaxed">
-              At Rex Medical Center, speech therapists don't work in isolation. They collaborate daily with our ABA behavior analysts and occupational therapists to ensure integrated, holistic care for children with complex developmental needs.
+              At REX Medical Complex, speech therapists don't work in isolation. They collaborate daily with our ABA behavior analysts and occupational therapists to ensure integrated, holistic care for children with complex developmental needs.
             </p>
             <div className="flex items-center gap-6 pt-2">
               <div className="flex items-center gap-2 text-xs font-semibold text-teal-200">
@@ -251,7 +252,7 @@ export default function SpeechTherapy() {
                 Ready to Help Your Child Speak With Confidence?
               </h2>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl">
-                Book a professional diagnostic evaluation with our certified speech pathologists at Rex Medical Center today.
+                Book a professional diagnostic evaluation with our certified speech pathologists at REX Medical Complex today.
               </p>
             </div>
             <div className="lg:col-span-4 flex justify-lg-end">

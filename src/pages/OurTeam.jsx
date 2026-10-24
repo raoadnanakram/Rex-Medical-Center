@@ -1,10 +1,20 @@
 // src/components/OurTeam.jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
-import { 
-  Calendar, ArrowRight, ShieldCheck, HeartHandshake, Users, 
-  Sparkles, Award, CheckCircle, Activity, Brain, Stethoscope, Apple, X, Briefcase, GraduationCap, Quote 
+import {
+  Calendar,
+  ArrowRight,
+  Sparkles,
+  CheckCircle,
+  Activity,
+  Brain,
+  Stethoscope,
+  Apple,
+  X,
+  Briefcase,
+  GraduationCap,
+  Quote,
 } from 'lucide-react';
 import { teamMembers } from '../data/teamData';
 import AftabImg from '../assets/Aftab.jpg';
@@ -17,13 +27,13 @@ const leadershipMembers = [
   {
     name: "Dr. M. A. Aftab Bhutta",
     role: "Chairman",
-    qualification: "Chairman, Rex Medical Centre",
+    qualification: "Chairman, REX Medical Complex",
     image: AftabImg,
-    tagline: "At Rex Medical Centre, we believe that every individual deserves the opportunity to live a dignified and fulfilling life.",
+    tagline: "At REX Medical Complex, we believe that every individual deserves the opportunity to live a dignified and fulfilling life.",
     sections: [
       {
         title: "Chairman's Message",
-        text: "At Rex Medical Centre, we believe that every individual deserves the opportunity to live a dignified and fulfilling life. Our rehabilitation center is dedicated to providing comprehensive and compassionate care to special persons in need."
+        text: "At REX Medical Complex, we believe that every individual deserves the opportunity to live a dignified and fulfilling life. Our rehabilitation center is dedicated to providing comprehensive and compassionate care to special persons in need."
       },
       {
         title: "Our Mission",
@@ -39,7 +49,7 @@ const leadershipMembers = [
       },
       {
         title: "A Message from the Chairman",
-        quote: "As Chairman of Rex Medical Centre, I am proud to lead an organization that makes a tangible difference in the lives of special persons. Our center is more than just a rehabilitation facility – it's a community, a support system, and a symbol of hope. I invite you to join us on this journey, as we strive to create a more inclusive and compassionate world, one individual at a time."
+        quote: "As Chairman of REX Medical Complex, I am proud to lead an organization that makes a tangible difference in the lives of special persons. Our center is more than just a rehabilitation facility – it's a community, a support system, and a symbol of hope. I invite you to join us on this journey, as we strive to create a more inclusive and compassionate world, one individual at a time."
       }
     ]
   },
@@ -52,11 +62,11 @@ const leadershipMembers = [
     sections: [
       {
         title: "A Message from Our CEO",
-        text: "As a Speech Pathologist and CEO of Rex Medical Centre, I am honored to lead an organization that is dedicated to providing free rehabilitation services to deserving individuals. Our mission is to empower those in need, regardless of their financial means, with the tools and support necessary to overcome their challenges."
+        text: "As a Speech Pathologist and CEO of REX Medical Complex, I am honored to lead an organization that is dedicated to providing free rehabilitation services to deserving individuals. Our mission is to empower those in need, regardless of their financial means, with the tools and support necessary to overcome their challenges."
       },
       {
         title: "Our Commitment to Excellence",
-        text: "At Rex Medical Centre, we are committed to delivering exceptional care through our multidisciplinary team of experienced professionals. Our state-of-the-art facility is equipped with the latest tools and technology, including:",
+        text: "At REX Medical Complex, we are committed to delivering exceptional care through our multidisciplinary team of experienced professionals. Our facility is equipped with dedicated therapy tools and equipment, including:",
         bullets: [
           "Separate speech, occupational therapy, behavior therapy, and physiotherapy rooms",
           "A play area designed specifically for children",
@@ -80,13 +90,13 @@ const leadershipMembers = [
   {
     name: "Usman Ahmad Bhutta",
     role: "Administrator | Media Director",
-    qualification: "Administrator, Rex Medical Centre",
+    qualification: "Administrator, REX Medical Complex",
     image: usmanImg,
     tagline: "Providing comprehensive rehabilitation services with compassion, kindness, and respect.",
     sections: [
       {
         title: "A Message from the Administrator",
-        text: "At Rex Medical Centre, we are dedicated to providing comprehensive rehabilitation services to deserving individuals, free of cost. Our state-of-the-art facility and multidisciplinary team of experts work together to empower our clients to reach their full potential."
+        text: "At REX Medical Complex, we are dedicated to providing comprehensive rehabilitation services to deserving individuals, free of cost. Our facility and multidisciplinary team of experts work together to empower our clients to reach their full potential."
       },
       {
         title: "Our Services",
@@ -109,7 +119,7 @@ const leadershipMembers = [
       },
       {
         title: "Our Commitment",
-        text: "At Rex Medical Centre, we are committed to providing exceptional care and support to our clients. We believe that everyone deserves access to quality rehabilitation services, regardless of their financial means."
+        text: "At REX Medical Complex, we are committed to providing exceptional care and support to our clients. We believe that everyone deserves access to quality rehabilitation services, regardless of their financial means."
       },
       {
         title: "A Message from the Administrator",
@@ -120,21 +130,21 @@ const leadershipMembers = [
   {
     name: "Ms. Asia Gillani",
     role: "Chief Operating Officer | Consultant Speech and Language Pathologist",
-    qualification: "Chief Operating Officer, Rex Medical Centre",
+    qualification: "Chief Operating Officer, REX Medical Complex",
     image: AsiaImg,
     tagline: "Ensuring smooth operations to provide the best possible care to our clients.",
     sections: [
       {
         title: "A Message from the Chief Operating Officer",
-        text: "As the Chief Operating Officer of Rex Medical Centre, I am responsible for ensuring that our organization runs smoothly and efficiently, allowing us to provide the best possible care to our clients."
+        text: "As the Chief Operating Officer of REX Medical Complex, I am responsible for ensuring that our organization runs smoothly and efficiently, allowing us to provide the best possible care to our clients."
       },
       {
         title: "Our Commitment to Excellence",
-        text: "At Rex Medical Centre, we are committed to providing exceptional rehabilitation services to deserving individuals, free of cost. We believe that everyone deserves access to quality care, regardless of their financial means."
+        text: "At REX Medical Complex, we are committed to providing exceptional rehabilitation services to deserving individuals, free of cost. We believe that everyone deserves access to quality care, regardless of their financial means."
       },
       {
         title: "Our Team and Facilities",
-        text: "We have a complete multidisciplinary team of experts, including speech pathologists, occupational therapists, behavior therapists, and physiotherapists. Our state-of-the-art facility includes:",
+        text: "We have a complete multidisciplinary team of experts, including speech pathologists, occupational therapists, behavior therapists, and physiotherapists. Our facility includes:",
         bullets: [
           "Separate therapy rooms for speech, occupational, behavior, and physiotherapy",
           "A play area for children, designed to promote learning and development",
@@ -161,7 +171,7 @@ function TeamCard({ expert, onViewProfile }) {
     e.stopPropagation();
     const formattedExpertName = expert.name.replace(/\s+/g, '-');
     const formattedService = expert.category.replace(/\s+/g, '-');
-    navigate(`/book-a-free-consult?expert=${formattedExpertName}&service=${formattedService}`);
+    navigate(`/book-a-free-consult?expert=${encodeURIComponent(formattedExpertName)}&service=${encodeURIComponent(formattedService)}`);
   };
 
   return (
@@ -237,7 +247,7 @@ function TeamProfileModal({ expert, isOpen, onClose }) {
   const handleBookAppointment = () => {
     const formattedExpertName = expert.name.replace(/\s+/g, '-');
     const formattedService = (expert.category || "Leadership").replace(/\s+/g, '-');
-    navigate(`/book-a-free-consult?expert=${formattedExpertName}&service=${formattedService}`);
+    navigate(`/book-a-free-consult?expert=${encodeURIComponent(formattedExpertName)}&service=${encodeURIComponent(formattedService)}`);
   };
 
   const isLeader = Boolean(expert.sections);
@@ -408,7 +418,7 @@ export default function OurTeam() {
   const handleBooking = (expertName, serviceName) => {
     const formattedExpertName = expertName.replace(/\s+/g, '-');
     const formattedService = serviceName.replace(/\s+/g, '-');
-    navigate(`/book-a-free-consult?expert=${formattedExpertName}&service=${formattedService}`);
+    navigate(`/book-a-free-consult?expert=${encodeURIComponent(formattedExpertName)}&service=${encodeURIComponent(formattedService)}`);
   };
 
   return (
@@ -430,7 +440,7 @@ export default function OurTeam() {
           >
             <span className="inline-flex items-center gap-2 bg-[#00A8CD]/20 border border-[#00A8CD]/40 text-[#00A8CD] text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-[0.25em]">
               <Sparkles className="w-3.5 h-3.5 text-[#F5A623]" />
-              REX Medical CENTER
+              REX Medical Complex
             </span>
           </motion.div>
 

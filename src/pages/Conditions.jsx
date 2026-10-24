@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { motion } from 'framer-motion';
 import conditionsImg from '../assets/conditions.png';
 import { 
@@ -8,6 +8,7 @@ import {
   Calendar 
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { PHONES } from '../data/business';
 
 export default function Conditions() {
   // Left and Right List Items
@@ -96,7 +97,7 @@ export default function Conditions() {
 
           {/* WhatsApp Contact Badge */}
           <a
-            href="https://wa.me/923244409797"
+            href={PHONES.whatsapp.href}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-white/95 hover:bg-emerald-50 text-slate-800 font-bold text-sm px-6 py-3.5 rounded-full shadow-md border border-slate-200/80 transition-all duration-300 transform hover:-translate-y-1 group"
@@ -104,7 +105,7 @@ export default function Conditions() {
             <div className="w-7 h-7 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center group-hover:scale-110 transition-transform">
               <PhoneCall className="w-3.5 h-3.5" />
             </div>
-            <span>(+92) 324 440 9797</span>
+            <span>{PHONES.whatsapp.label}: {PHONES.whatsapp.display}</span>
           </a>
         </motion.div>
       </div>

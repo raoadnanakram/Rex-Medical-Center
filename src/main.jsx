@@ -1,10 +1,27 @@
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { createRoot, hydrateRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import App from './App.jsx'
+import { preloadRoute } from './routes'
 
-createRoot(document.getElementById('root')).render(
+const container = document.getElementById('root')
+const app = (
   <StrictMode>
-    <App />
-  </StrictMode>,
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </StrictMode>
 )
+
+// Load the current page's chunk first so the first render matches the prerendered HTML.
+// Prerendered pages ship with HTML inside #root, so hydrate them; the 404 shell is empty.
+preloadRoute(window.location.pathname)
+  .catch(() => {})
+  .then(() => {
+    if (container.hasChildNodes()) {
+      hydrateRoot(container, app)
+    } else {
+      createRoot(container).render(app)
+    }
+  })

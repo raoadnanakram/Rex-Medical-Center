@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Heart, ArrowRight, CheckCircle2, Copy, Building2, Smartphone, MessageCircle } from 'lucide-react';
+import { Heart, ArrowRight, CheckCircle2, Copy, MessageCircle } from 'lucide-react';
+import { PHONES } from '../data/business';
 
 export default function DonateNow() {
   const [selectedAmount, setSelectedAmount] = useState('5000');
@@ -12,32 +13,32 @@ export default function DonateNow() {
 
   const predefinedAmounts = ['1000', '3000', '5000', '10000', '25000'];
 
-  const contactWhatsApp = "+92 324 4409797";
+  const contactWhatsApp = PHONES.whatsapp.display;
   const finalAmount = customAmount || selectedAmount;
 
   const salutation = donorInfo.gender === 'Female' ? 'Madam' : 'Sir';
 
   const whatsappMessage = encodeURIComponent(
-    `Assalam o Alaikum ${salutation},\n\nRex Medical Center, I have made a donation of *Rs. ${Number(finalAmount).toLocaleString()}*.\n\n*Donor Name:* ${donorInfo.name}\n*Phone:* ${donorInfo.phone}\n\nPlease find my payment screenshot attached:`
+    `Assalam o Alaikum ${salutation},\n\nREX Medical Complex, I have made a donation of *Rs. ${Number(finalAmount).toLocaleString()}*.\n\n*Donor Name:* ${donorInfo.name}\n*Phone:* ${donorInfo.phone}\n\nPlease find my payment screenshot attached:`
   );
-  const whatsappDirectUrl = `https://wa.me/923244409797?text=${whatsappMessage}`;
+  const whatsappDirectUrl = `${PHONES.whatsapp.href}?text=${whatsappMessage}`;
 
   const accountDetails = {
     faysal: {
       name: "Faysal Bank",
-      title: "REX Medical Centre",
+      title: "REX Medical Complex",
       accountNo: "3232301000002085",
       iban: "PK53FAYS3232301000002085"
     },
     mcb: {
       name: "MCB Islamic Bank",
-      title: "REX Medical Centre",
+      title: "REX Medical Complex",
       accountNo: "1601005590330001",
       iban: "PK90MUCB1601005590330001"
     },
     islamic: {
       name: "BankIslami",
-      title: "REX Medical Centre",
+      title: "REX Medical Complex",
       accountNo: "209300272940001",
       iban: "PK84BKSP02093002729"
     },

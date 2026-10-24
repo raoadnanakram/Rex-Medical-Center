@@ -4,7 +4,7 @@ import kashifImg from '../assets/Kashif.jpg';
 import naveedImg from '../assets/Naveed.jpg';
 import AsiaImg from '../assets/Asia.jpg';
 import AyazImg from '../assets/Ayaz.jpg';
-import DrImg from '../assets/Dr.PNG';
+import DrImg from '../assets/Dr.png';
 import contactDr from '../assets/Abdulrehman.jpeg';
 export const teamMembers = [
   {
@@ -22,7 +22,7 @@ export const teamMembers = [
       "Behavioral Intervention",
       "Social Development"
     ],
-    bio: "As a Speech Pathologist and CEO of Rex Medical Centre, I am honored to lead an organization that is dedicated to providing free rehabilitation services to deserving individuals. Our mission is to empower those in need, regardless of their financial means, with the tools and support necessary to overcome their challenges."
+    bio: "As a Speech Pathologist and CEO of REX Medical Complex, I am honored to lead an organization that is dedicated to providing free rehabilitation services to deserving individuals. Our mission is to empower those in need, regardless of their financial means, with the tools and support necessary to overcome their challenges."
   },
   {
     id: 2,
@@ -39,7 +39,7 @@ export const teamMembers = [
       "Behavioral Intervention",
       "Social Development"
     ],
-    bio: "As the Chief Operating Officer of Rex Medical Centre, I am responsible for ensuring that our organization runs smoothly and efficiently, allowing us to provide the best possible care to our clients"
+    bio: "As the Chief Operating Officer of REX Medical Complex, I am responsible for ensuring that our organization runs smoothly and efficiently, allowing us to provide the best possible care to our clients"
   },
   {
   id: 3, // Aap apnay sequence ke mutabiq ID change kar saktay hain
@@ -96,7 +96,7 @@ export const teamMembers = [
     id: 6,
     name: "Dr. Abbas Aftab",
     designation: "Consultant Medical Physician & Neurologist",
-    category: "Physiotherapy", // Aap apni zaroorat ke mutabiq category change kar sakte hain
+    category: "Specialist Consultations", // Physician/neurologist, listed under Specialist Consultation on the booking page
     image: AftabImg, // Aapki local image
     qualification: "M.B.B.S, F.C.P.S. (Medicine)",
     experience: "15+ Years",
@@ -107,7 +107,7 @@ export const teamMembers = [
       "General Hospital Lahore",
       "Family Medicine"
     ],
-    bio: "Dr. Abbas Aftab is an experienced Consultant Medical Physician and Neurologist at General Hospital Lahore[cite: 1], specializing in comprehensive medical care, neurological diagnostics, and expert patient management."
+    bio: "Dr. Abbas Aftab is an experienced Consultant Medical Physician and Neurologist at General Hospital Lahore, specializing in comprehensive medical care, neurological diagnostics, and expert patient management."
   },
   {
     id: 7, // Aap apni zaroorat ke mutabiq ID set kar sakte hain
