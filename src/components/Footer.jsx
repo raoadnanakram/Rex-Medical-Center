@@ -1,6 +1,6 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, MapPin, Phone, Mail, ChevronRight } from 'lucide-react';
+import { BUSINESS_NAME, ADDRESS, PHONES } from '../data/business';
 
 function Footer() {
   const BOOK_LINK = "/book-a-free-consult";
@@ -24,7 +24,7 @@ function Footer() {
               <Link to="/" className="inline-block group">
                 <img 
                   src="/logo.png" 
-                  alt="Rex Medical Centre" 
+                  alt="REX Medical Complex" 
                   className="h-16 w-auto transform group-hover:scale-105 transition-all duration-300 drop-shadow-[0_0_12px_rgba(255,255,255,0.15)]" 
                 />
               </Link>
@@ -88,8 +88,8 @@ function Footer() {
                 { name: 'Meet Our Team', path: '/about/our-team' },
                 { name: 'Our Services', path: '/services' },
                 { name: 'Conditions We Support', path: '/conditions' },
-                { name: 'Therapy Tools', path: '/Tools' },
-                { name: 'Donate Now', path: '/donat-now' },
+                { name: 'Therapy Tools', path: '/therapy-tools' },
+                { name: 'Donate Now', path: '/donate' },
                 { name: 'Contact Us', path: '/contact' },
               ].map((link, idx) => (
                 <li key={idx}>
@@ -116,8 +116,8 @@ function Footer() {
                 { name: 'Behavior Therapy', path: '/services/behavior-therapy' },
                 { name: 'Occupational Therapy', path: '/services/occupational-therapy' },
                 { name: 'Physiotherapy', path: '/services/physiotherapy' },
-                { name: 'Sensory Therapy', path: '/services/sensorytherapy' },
-                { name: 'Play Therapy', path: '/services/playtherapy' },
+                { name: 'Sensory Therapy', path: '/services/sensory-therapy' },
+                { name: 'Play Therapy', path: '/services/play-therapy' },
                 { name: 'Specialist Consultations', path: '/services/specialist-consultations' },
               ].map((service, idx) => (
                 <li key={idx}>
@@ -145,17 +145,26 @@ function Footer() {
                   <MapPin className="w-4 h-4" />
                 </div>
                 <span className="text-slate-400 group-hover:text-slate-200 transition-colors leading-relaxed pt-1">
-                  91 A, College Block, Allama Iqbal Town, Lahore, Pakistan
+                  {ADDRESS}
                 </span>
               </li>
 
-              <li className="flex items-center gap-3 group">
+              <li className="flex items-start gap-3 group">
                 <div className="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center shrink-0 text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300">
                   <Phone className="w-4 h-4" />
                 </div>
-                <a href="tel:+923244409797" className="text-slate-400 group-hover:text-emerald-400 transition-colors">
-                  +92 324 4409-797
-                </a>
+                <div className="flex flex-col gap-1">
+                  {[PHONES.main, PHONES.whatsapp, PHONES.landline].map((p) => (
+                    <a
+                      key={p.label}
+                      href={p.href}
+                      {...(p === PHONES.whatsapp ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                      className="text-slate-400 group-hover:text-emerald-400 transition-colors"
+                    >
+                      <span className="text-slate-500">{p.label}:</span> {p.display}
+                    </a>
+                  ))}
+                </div>
               </li>
 
               <li className="flex items-center gap-3 group">
@@ -187,11 +196,12 @@ function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>&copy; {new Date().getFullYear()} Rex Medical Centre. All rights reserved.</p>
-          <div className="flex items-center gap-6">
+          <p>&copy; {new Date().getFullYear()} {BUSINESS_NAME}. All rights reserved.</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
             <Link to="/contact" className="hover:text-slate-300 transition-colors">FAQ'S</Link>
-            <Link to="#" className="hover:text-slate-300 transition-colors">Privacy Policy</Link>
-            <Link to="#" className="hover:text-slate-300 transition-colors">Terms of Service</Link>
+            <Link to="/privacy-policy" className="hover:text-slate-300 transition-colors">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="hover:text-slate-300 transition-colors">Terms of Service</Link>
+            <Link to="/medical-disclaimer" className="hover:text-slate-300 transition-colors">Medical Disclaimer</Link>
           </div>
         </div>
 

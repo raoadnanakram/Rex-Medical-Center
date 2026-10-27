@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Sparkles, ArrowRight, Mail, CheckCircle2, Clock, MapPin, Video, Building2, CalendarDays } from 'lucide-react';
 
 import book1Img from '../assets/Book1.jpg';
 import book2Img from '../assets/Book2.jpg';
+import { API_BASE_URL } from '../config/api';
+import { PHONES } from '../data/business';
 
 // ---------- Common locations ----------
 const NOOR_LAHORE = "Noor Hospital (Lahore) - 18-KM Main Lahore-Kasur Road";
@@ -153,6 +156,61 @@ export default function BookConsult() {
   const showDateStep = !!activeSchedule;
   const canSubmit = !!(formData.date && formData.timeSlot && (isOnline || formData.location));
 
+  // Prefill from "Book with this expert" links on the Our Team page: ?expert=Name-With-Dashes&service=Category
+  const [searchParams] = useSearchParams();
+  useEffect(() => {
+    const expertParam = searchParams.get('expert');
+    const serviceParam = searchParams.get('service');
+    if (!expertParam && !serviceParam) return;
+
+    const normalize = (str) =>
+      (str || '').toLowerCase().replace(/-/g, ' ').replace(/\b(mr|mrs|ms|dr|hafiz)\.?\s/g, '').replace(/[^a-z]/g, '');
+    const wanted = normalize(expertParam);
+
+    let service = '';
+    let doctor = null;
+    if (wanted) {
+      for (const [dept, doctors] of Object.entries(departmentDoctors)) {
+        const match = doctors.find((d) => {
+          const name = normalize(d.name);
+          return name === wanted || name.includes(wanted) || wanted.includes(name);
+        });
+        if (match) {
+          service = dept;
+          doctor = match;
+          break;
+        }
+      }
+    }
+
+    if (!service && serviceParam) {
+      const key = serviceParam.toLowerCase();
+      if (key.includes('speech')) service = 'Speech Therapy';
+      else if (key.includes('physio')) service = 'Physiotherapy';
+      else if (key.includes('specialist')) service = 'Specialist Consultation';
+      else if (key.includes('nutrition')) service = 'Nutrition';
+    }
+    // Experts without a booking-roster entry (e.g. ABA, psychology) are kept in the message
+    // so the clinic still sees who the visitor asked for.
+    const expertName = (expertParam || '').replace(/-/g, ' ').trim();
+    const serviceName = (serviceParam || '').replace(/-/g, ' ').trim();
+    const note = !doctor && expertName
+      ? `I'd like to book with ${expertName}${serviceName ? ` (${serviceName})` : ''}.`
+      : '';
+    if (!service && !note) return;
+
+    // Runs once after hydration so the prerendered HTML (no query string) still matches.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setFormData((prev) => ({
+      ...prev,
+      service: service || prev.service,
+      doctor: doctor ? doctor.name : '',
+      location: doctor && doctor.locations.length === 1 ? doctor.locations[0].name : '',
+      message: note && !prev.message ? note : prev.message,
+    }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams]);
+
   const handleDepartmentChange = (e) => {
     setFormData({
       ...formData,
@@ -204,7 +262,7 @@ export default function BookConsult() {
     setError('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/forms/appointment', {
+      const response = await fetch(`${API_BASE_URL}/api/forms/appointment`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -225,11 +283,11 @@ export default function BookConsult() {
       if (response.ok) {
         setSubmitted(true);
       } else {
-        setError(data.message || 'Something went wrong. Please try again.');
+        setError(`${data.message || 'Something went wrong.'} You can also call ${PHONES.main.display} or WhatsApp ${PHONES.whatsapp.display} to book.`);
       }
     } catch (err) {
       console.error('Network Error:', err);
-      setError('Server se connection nahi ho pa raha.');
+      setError(`We couldn't send your request. Please call ${PHONES.main.display} or WhatsApp ${PHONES.whatsapp.display} to book.`);
     }
   };
 
@@ -281,13 +339,13 @@ export default function BookConsult() {
             
             <div className="absolute bottom-6 left-6 right-6 flex flex-wrap items-center gap-3">
               <a 
-                href="https://wa.me/+923244409797" 
+                href={PHONES.whatsapp.href} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2.5 bg-white/95 backdrop-blur-md px-5 py-3 rounded-full text-slate-800 text-xs font-bold shadow-lg hover:bg-emerald-50 hover:text-emerald-700 transition-all"
               >
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                <span>+92 324 4409797</span>
+                <span>{PHONES.whatsapp.label}: {PHONES.whatsapp.display}</span>
               </a>
 
               <a 

@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, MessageSquare, Mail, Clock, Calendar, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+
 
 // Contact images import kar li hain (ensure karein ke ye files src/assets folder mein mojood hon)
 import contact1Img from '../assets/contact1.jpg';
 import contact2Img from '../assets/contact2.jpg';
+import { API_BASE_URL } from '../config/api';
+import { PHONES } from '../data/business';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -26,7 +28,7 @@ export default function Contact() {
 
     try {
       // Backend ke contact route par data bhej rahe hain
-      const response = await fetch('http://localhost:5000/api/forms/contact', {
+      const response = await fetch(`${API_BASE_URL}/api/forms/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -43,11 +45,11 @@ export default function Contact() {
       if (response.ok) {
         setSubmitted(true);
       } else {
-        setError(data.message || 'Kuch masla ho gaya hai. Dobara koshish karein.');
+        setError(`${data.message || 'Something went wrong.'} You can also call ${PHONES.main.display} or WhatsApp ${PHONES.whatsapp.display}.`);
       }
     } catch (err) {
       console.error('Network Error:', err);
-      setError('Server se connection nahi ho pa raha.');
+      setError(`We couldn't send your message. Please call ${PHONES.main.display} or WhatsApp ${PHONES.whatsapp.display}.`);
     }
   };
 
@@ -90,7 +92,7 @@ export default function Contact() {
             </h2>
             
             <div className="space-y-3 bg-white/95 backdrop-blur-md p-6 rounded-3xl shadow-sm border border-slate-200/70">
-              <h3 className="font-serif text-xl font-bold text-[#1c296b]">Rex Medical Centre</h3>
+              <h3 className="font-serif text-xl font-bold text-[#1c296b]">REX Medical Complex</h3>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-red-600 flex-shrink-0 mt-1" />
                 <span>91 A, College Block, Allama Iqbal Town, Lahore, Pakistan</span>
@@ -100,21 +102,21 @@ export default function Contact() {
 
           {/* Contact Numbers & Email Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <a 
-              href="tel:+9242111739633" 
-              className="p-5 bg-white/95 rounded-2xl shadow-sm border border-slate-200/70 hover:border-[#1c296b] transition-all duration-300 flex items-center gap-4 group"
+            <div 
+              className="relative p-5 bg-white/95 rounded-2xl shadow-sm border border-slate-200/70 hover:border-[#1c296b] transition-all duration-300 flex items-center gap-4 group"
             >
               <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#1c296b] flex items-center justify-center group-hover:bg-[#1c296b] group-hover:text-white transition-colors">
                 <Phone className="w-5 h-5" />
               </div>
               <div>
                 <p className="text-xs text-slate-400 font-semibold uppercase">Call Us</p>
-                <p className="text-sm font-bold text-slate-800">(+92) 324-440-9797</p>
+                <a href={PHONES.main.href} className="text-sm font-bold text-slate-800 after:absolute after:inset-0 after:rounded-2xl">{PHONES.main.display}</a>
+                <p className="text-xs text-slate-500">{PHONES.landline.label}: <a href={PHONES.landline.href} className="relative z-10 hover:underline">{PHONES.landline.display}</a></p>
               </div>
-            </a>
+            </div>
 
             <a 
-              href="https://wa.me/923244409797" 
+              href={PHONES.whatsapp.href} 
               target="_blank" 
               rel="noopener noreferrer"
               className="p-5 bg-white/95 rounded-2xl shadow-sm border border-slate-200/70 hover:border-emerald-400 transition-all duration-300 flex items-center gap-4 group"
@@ -124,7 +126,7 @@ export default function Contact() {
               </div>
               <div>
                 <p className="text-xs text-slate-400 font-semibold uppercase">WhatsApp</p>
-                <p className="text-sm font-bold text-slate-800">(+92) 324 440 9797</p>
+                <p className="text-sm font-bold text-slate-800">{PHONES.whatsapp.display}</p>
               </div>
             </a>
           </div>
@@ -167,7 +169,7 @@ export default function Contact() {
           <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white w-full max-w-lg group">
             <img
               src={contact1Img}
-              alt="Rex Medical Centre Consultation"
+              alt="REX Medical Complex Consultation"
               className="w-full h-[450px] object-cover object-center transform group-hover:scale-105 transition-transform duration-700 ease-out"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent opacity-60" />

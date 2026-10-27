@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rexmedcomplex.com/sitemap.xml

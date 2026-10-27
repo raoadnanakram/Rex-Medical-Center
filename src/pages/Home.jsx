@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ArrowRight, 
@@ -32,7 +32,7 @@ import usmanImg from '../assets/Usman.jpg';
 import naveedImg from '../assets/Naveed.jpg';
 import AsiaImg from '../assets/Asia.jpg';
 import AyazImg from '../assets/Ayaz.jpg';
-import DrImg from '../assets/Dr.PNG';
+import DrImg from '../assets/Dr.png';
 import KashifImg from '../assets/Kashif.jpg';
 import contact1Img from '../assets/contact1.jpg';
 import contactDr from '../assets/Abdulrehman.jpeg';
@@ -41,7 +41,18 @@ const dynamicWords = ["trusted", "expert", "experienced"];
 const BOOK_LINK = "/book-a-free-consult";
 
 // ================= DATA =================
-const reviewsData = [
+// Verified patient reviews for Naveed Ahmed Aftab Bhutta, copied word for word from oladoc
+// (retrieved 25 Oct 2026): https://oladoc.com/pakistan/karachi/dr/speech-and-language-pathologist/naveed-ahmed-aftab-bhutta/521332
+const OLADOC_PROFILE_URL = "https://oladoc.com/pakistan/karachi/dr/speech-and-language-pathologist/naveed-ahmed-aftab-bhutta/521332";
+const oladocReviews = [
+  { id: "ol-1", comment: "Great experience", name: "Ghulam", initial: "G", bgInitial: "bg-sky-600" },
+  { id: "ol-2", comment: "It was a good experience overall. He listened attentively.", name: "Ayesha", initial: "A", bgInitial: "bg-indigo-600" },
+  { id: "ol-3", comment: "It was a good experience.", name: "Ayesha", initial: "A", bgInitial: "bg-violet-600" },
+  { id: "ol-4", comment: "Nice experiece", name: "Ahad", initial: "A", bgInitial: "bg-cyan-700" },
+  { id: "ol-5", comment: "I'm very satisfied. Mr Naveed council me very well. His way of dealing is very good. He is very professional.", name: "Naveed", initial: "N", bgInitial: "bg-teal-700" },
+].map((r) => ({ ...r, role: "Verified patient · oladoc", source: OLADOC_PROFILE_URL }));
+
+const testimonialsData = [
   {
     id: 1,
     comment: "My son started speaking his first words after just a few months of speech therapy. The therapists are patient, caring and truly professional.",
@@ -92,6 +103,8 @@ const reviewsData = [
   },
 ];
 
+const reviewsData = [...oladocReviews, ...testimonialsData];
+
 const speechVideosData = [
   {
     id: "qjH9nvLDrOE",
@@ -103,7 +116,7 @@ const speechVideosData = [
   {
     id: "dixT-ZG_S9U",
     title: "Interview & Complete Center Overview",
-    desc: "An exclusive interview exploring Rex Medical Centre Lahore, therapy techniques, special needs care, and expert team.",
+    desc: "An exclusive interview exploring REX Medical Complex Lahore, therapy techniques, special needs care, and expert team.",
     duration: "28:00",
     url: "https://youtu.be/dixT-ZG_S9U"
   },
@@ -178,7 +191,7 @@ const HeroSection = () => {
               </AnimatePresence>
             </span>
             <br />
-            child therapists
+            child therapists in Lahore
           </motion.h1>
 
           <motion.p
@@ -270,8 +283,8 @@ const HeroSection = () => {
               <Users className="w-5 h-5 sm:w-6 sm:h-6" />
             </span>
             <div className="leading-tight">
-              <h3 className="font-serif text-xl sm:text-2xl font-bold tracking-tight">4000+</h3>
-              <p className="text-[10px] sm:text-xs font-semibold text-[#271E38]/70">children supported</p>
+              <h3 className="font-serif text-xl sm:text-2xl font-bold tracking-tight">Children &amp; families</h3>
+              <p className="text-[10px] sm:text-xs font-semibold text-[#271E38]/70">supported across Lahore</p>
             </div>
           </motion.div>
         </motion.div>
@@ -417,7 +430,7 @@ const WhyChooseSection = () => {
     },
     {
       title: "Affordable consultation packages with specialist doctors",
-      description: "Transparent pricing and flexible consultation plans ensuring expert medical guidance is accessible to all families.",
+      description: "Flexible consultation plans ensuring expert medical guidance is accessible to all families.",
       icon: <DollarSign className="w-6 h-6 text-indigo-600" />
     },
     {
@@ -441,7 +454,7 @@ const WhyChooseSection = () => {
             EXCELLENCE IN HEALTHCARE
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight">
-            Why Choose <span className="text-emerald-700 italic">Rex Medical Center</span>?
+            Why Choose <span className="text-emerald-700 italic">REX Medical Complex</span>?
           </h2>
         </motion.div>
 
@@ -504,8 +517,8 @@ const ScopeSection = () => {
       icon: <ShieldCheck className="w-5 h-5 text-indigo-600" />
     },
     {
-      title: "State-of-the-Art Equipment",
-      desc: "Utilizing state-of-the-art equipment and therapeutic tools to ensure the best possible outcomes.",
+      title: "Specialised Therapy Equipment",
+      desc: "Using dedicated therapy equipment and tools to ensure the best possible outcomes.",
       icon: <Sparkles className="w-5 h-5 text-amber-600" />
     }
   ];
@@ -531,7 +544,7 @@ const ScopeSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white"
           >
-            Scope of <span className="text-teal-400 italic">Rex Medical Center</span>
+            Scope of <span className="text-teal-400 italic">REX Medical Complex</span>
           </motion.h2>
 
           <motion.p 
@@ -541,7 +554,7 @@ const ScopeSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-slate-300 text-sm sm:text-base leading-relaxed"
           >
-            At Rex Medical Center, we aim to provide holistic healthcare solutions, focusing on quality, innovation, and patient-centric care. Our clinic caters to individuals of all ages, offering a wide range of medical services to meet diverse healthcare needs. We are committed to:
+            At REX Medical Complex, we aim to provide holistic healthcare solutions, focusing on quality, innovation, and patient-centric care. Our clinic caters to individuals of all ages, offering a wide range of medical services to meet diverse healthcare needs. We are committed to:
           </motion.p>
         </div>
 
@@ -807,13 +820,13 @@ const TeamCarouselSection = () => {
       name: "Dr M. A. Aftab Bhutta",
       role: "Chairman",
       image: AftabImg,
-      bio: "As a Speech Pathologist and CEO of Rex Medical Centre, I am honored to lead an organization that is dedicated to providing free rehabilitation services to deserving individuals."
+      bio: "As a Speech Pathologist and CEO of REX Medical Complex, I am honored to lead an organization that is dedicated to providing free rehabilitation services to deserving individuals."
     },
     {
       name: "Naveed Ahmed Aftab Bhutta",
       role: "Chief Executive Officer | Consultant Speech Pathologist",
       image: naveedImg,
-      bio: "As a Speech Pathologist and CEO of Rex Medical Centre, I am honored to lead an organization that is dedicated to providing free rehabilitation services to deserving individuals."
+      bio: "As a Speech Pathologist and CEO of REX Medical Complex, I am honored to lead an organization that is dedicated to providing free rehabilitation services to deserving individuals."
     },
     {
       name: "Usman Ahmad Bhutta",
@@ -825,7 +838,7 @@ const TeamCarouselSection = () => {
       name: "Ms. Asia Gillani",
       role: "Chief Operating Officer | Consultant Speech Pathologist",
       image: AsiaImg,
-      bio: "As the Chief Operating Officer of Rex Medical Centre, I am responsible for ensuring that our organization runs smoothly and efficiently."
+      bio: "As the Chief Operating Officer of REX Medical Complex, I am responsible for ensuring that our organization runs smoothly and efficiently."
     },
     {
       name: "Dr. Kashif Faraz Ahmed",
@@ -1150,14 +1163,24 @@ export const ReviewsCarouselSection = () => {
 
             <div className="grid grid-cols-2 gap-4 pt-6 border-t border-white/15 mb-8">
               <div className="bg-white/5 backdrop-blur-md p-4 rounded-2xl border border-white/10">
-                <p className="text-2xl sm:text-3xl font-bold font-serif text-teal-300">100%</p>
-                <p className="text-xs text-slate-300 mt-1 font-medium">Committed Care</p>
+                <p className="text-2xl sm:text-3xl font-bold font-serif text-teal-300">53</p>
+                <p className="text-xs text-slate-300 mt-1 font-medium">Google Reviews</p>
               </div>
               <div className="bg-white/5 backdrop-blur-md p-4 rounded-2xl border border-white/10">
-                <p className="text-2xl sm:text-3xl font-bold font-serif text-teal-300">4.9/5</p>
-                <p className="text-xs text-slate-300 mt-1 font-medium">Patient Rating</p>
+                <p className="text-2xl sm:text-3xl font-bold font-serif text-teal-300">4.8/5</p>
+                <p className="text-xs text-slate-300 mt-1 font-medium">Google Rating</p>
               </div>
             </div>
+
+            <a
+              href={OLADOC_PROFILE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block text-xs text-slate-300 hover:text-teal-300 transition-colors -mt-4 mb-8"
+            >
+              <Star className="inline w-3.5 h-3.5 fill-amber-400 text-amber-400 -mt-0.5 mr-1" />
+              <span className="font-semibold text-white">4.9/5</span> from 3,714 verified patient reviews for Naveed Ahmed Aftab Bhutta on oladoc &rarr;
+            </a>
 
             <Link
               to={BOOK_LINK}

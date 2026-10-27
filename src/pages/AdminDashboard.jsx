@@ -1,7 +1,8 @@
 // src/components/AdminDashboard.jsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { API_BASE_URL } from '../config/api';
 import {
   LayoutDashboard,
   CalendarDays,
@@ -17,24 +18,19 @@ import {
   Clock,
   ShieldCheck,
   AlertCircle,
-  CheckCircle2,
   ArrowRight,
   Calendar,
   Activity,
   Sparkles,
   Bell,
   Lock,
-  User,
   Database,
-  Camera,
   Check,
   Upload,
   Maximize2,
-  Download,
   FileSpreadsheet,
-  CheckCircle,
   Plus,
-  Trash2
+  Trash2,
 } from 'lucide-react';
 
 export default function AdminDashboard() {
@@ -144,7 +140,7 @@ export default function AdminDashboard() {
     setError(null);
 
     try {
-      const apptRes = await fetch('http://localhost:5000/api/forms/appointments', {
+      const apptRes = await fetch(`${API_BASE_URL}/api/forms/appointments`, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
@@ -155,7 +151,7 @@ export default function AdminDashboard() {
       }
       const apptData = await apptRes.json();
 
-      const contactRes = await fetch('http://localhost:5000/api/forms/contacts', {
+      const contactRes = await fetch(`${API_BASE_URL}/api/forms/contacts`, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
@@ -454,7 +450,7 @@ export default function AdminDashboard() {
                 {activeTab === 'settings' && 'Admin Portal Settings'}
               </h1>
               <p className="text-xs text-slate-500 hidden sm:block">
-                REX Medical Center Command & Management Center
+                REX Medical Complex Command & Management Center
               </p>
             </div>
           </div>
@@ -492,7 +488,7 @@ export default function AdminDashboard() {
               </div>
               <div className="hidden md:block text-left">
                 <p className="text-xs font-bold text-[#1E3A8A]">Administrator</p>
-                <p className="text-[10px] text-slate-500">REX Medical Center</p>
+                <p className="text-[10px] text-slate-500">REX Medical Complex</p>
               </div>
             </div>
 
@@ -1233,7 +1229,7 @@ export default function AdminDashboard() {
         </main>
 
         <footer className="w-full text-center py-6 border-t border-slate-200 text-slate-400 text-xs font-medium bg-white mt-auto">
-          REX Medical Center • Admin Dashboard
+          REX Medical Complex • Admin Dashboard
         </footer>
 
       </div>

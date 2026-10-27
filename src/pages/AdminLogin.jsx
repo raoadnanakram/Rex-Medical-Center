@@ -1,7 +1,8 @@
 // src/pages/AdminLogin.jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { API_BASE_URL } from '../config/api';
 import {
   Phone,
   Lock,
@@ -12,8 +13,7 @@ import {
   AlertCircle,
   Loader2,
   CheckCircle2,
-  Activity,
-  LayoutDashboard
+  LayoutDashboard,
 } from 'lucide-react';
 
 const AdminLogin = () => {
@@ -36,7 +36,7 @@ const AdminLogin = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5000/api/auth/login', {
+      const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ phone: phone.trim(), password })
@@ -81,7 +81,7 @@ const AdminLogin = () => {
           <div className="inline-flex items-center gap-3 bg-white px-4 py-2 rounded-full border border-slate-200 shadow-sm">
             <span className="w-2.5 h-2.5 rounded-full bg-[#00875A] animate-pulse" />
             <span className="text-xs font-bold tracking-widest uppercase text-[#00875A]">
-              REX Medical Center Portal
+              REX Medical Complex Portal
             </span>
           </div>
 
@@ -133,7 +133,7 @@ const AdminLogin = () => {
             <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-[#1E3A8A] text-white mb-3 shadow-md font-serif font-bold">
               REX
             </div>
-            <h2 className="text-2xl font-bold text-[#1E3A8A]">REX Medical Center</h2>
+            <h2 className="text-2xl font-bold text-[#1E3A8A]">REX Medical Complex</h2>
             <p className="text-xs text-slate-500 font-medium">Administration Portal</p>
           </div>
 
@@ -279,7 +279,7 @@ const AdminLogin = () => {
 
       {/* FOOTNOTE / BRANDING */}
       <footer className="w-full text-center py-4 z-10 text-slate-500 text-xs font-medium">
-        © REX Medical Center — Admin Portal
+        © REX Medical Complex — Admin Portal
       </footer>
 
     </div>

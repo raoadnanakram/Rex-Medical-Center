@@ -1,10 +1,10 @@
-import React from 'react';
+
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle2, Phone, Award, Puzzle, Activity, Smile, HandMetal, HeartHandshake, Users, Layers, Sparkles } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Phone, Award } from 'lucide-react';
+import { PHONES } from '../data/business';
 
 const otHeroImg = "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&q=80&w=800";
-const otSensoryImg = "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=800";
 
 export default function OccupationalTherapy() {
   const supportAreas = [
@@ -80,7 +80,7 @@ export default function OccupationalTherapy() {
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-50 border border-teal-100 text-[#1c296b] font-bold text-xs uppercase tracking-[0.25em] shadow-sm"
           >
             <Award className="w-4 h-4 text-teal-600" />
-            Rex Medical Center Center of Excellence
+            REX Medical Complex Center of Excellence
           </motion.div>
 
           <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal text-slate-900 tracking-tight">
@@ -104,7 +104,7 @@ export default function OccupationalTherapy() {
               <ArrowRight className="w-4 h-4" />
             </Link>
             <a 
-              href="https://wa.me/923276680954" 
+              href={PHONES.whatsapp.href} 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-white px-6 py-4 rounded-full text-slate-800 text-xs font-bold shadow-md hover:bg-emerald-50 hover:text-emerald-700 transition-all border border-slate-200"
@@ -459,7 +459,7 @@ export default function OccupationalTherapy() {
                 Empower Your Child's Independence Today
               </h2>
               <p className="text-slate-200 text-sm sm:text-base leading-relaxed max-w-2xl">
-                Schedule a professional occupational and sensory therapy consultation at Rex Medical Center, Lahore.
+                Schedule a professional occupational and sensory therapy consultation at REX Medical Complex, Lahore.
               </p>
             </div>
             <div className="lg:col-span-4 flex lg:justify-end">
