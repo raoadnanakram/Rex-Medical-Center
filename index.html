@@ -31,6 +31,22 @@
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- Google Analytics 4 (admin/login pages ginti mein shamil nahi) -->
+    <script>
+      (function () {
+        if (/^\/(admin|login)/i.test(window.location.pathname)) return;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-K39N622R6D';
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-K39N622R6D');
+      })();
+    </script>
     <script type="module" crossorigin src="/assets/index-CgM1dT0M.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/jsx-runtime-OQpaS_Dv.js">
     <link rel="modulepreload" crossorigin href="/assets/arrow-right-ChWMU6YJ.js">
