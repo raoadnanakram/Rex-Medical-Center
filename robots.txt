@@ -1,4 +1,14 @@
 User-agent: *
 Allow: /
 
+# AI search crawlers: allowed so ChatGPT Search, Perplexity etc. can show the site in answers.
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
 Sitemap: https://rexmedcomplex.com/sitemap.xml

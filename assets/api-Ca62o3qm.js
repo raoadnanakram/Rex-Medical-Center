@@ -1,0 +1,1 @@
+var e=`https://api.rexmedcomplex.com`.replace(/\/+$/,``);export{e as t};
