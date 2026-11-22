@@ -25,7 +25,9 @@
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Non-blocking: text shows in a system font first, then switches to Inter (display=swap). Improves mobile first paint. -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 
     <!-- Font Awesome Icons (non-blocking: page paint is not held up by this stylesheet) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'" />
@@ -59,7 +61,7 @@
         gtag('config', 'G-K39N622R6D');
       })();
     </script>
-    <script type="module" crossorigin src="/assets/index-BL2z-5ge.js"></script>
+    <script type="module" crossorigin src="/assets/index-DKayGfHQ.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/jsx-runtime-CU3EbJiN.js">
     <link rel="stylesheet" crossorigin href="/assets/index-C6RkPsji.css">
   </head>

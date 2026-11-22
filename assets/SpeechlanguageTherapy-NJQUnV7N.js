@@ -1,0 +1,1 @@
+var e=`/assets/Physiotherapy-CdmWgdBq.webp`,t=`/assets/SpeechlanguageTherapy-D5CQaj0-.webp`;export{e as n,t};

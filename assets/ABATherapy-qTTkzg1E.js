@@ -1,0 +1,1 @@
+var e=`/assets/ABATherapy-CvSTv_qV.webp`;export{e as t};

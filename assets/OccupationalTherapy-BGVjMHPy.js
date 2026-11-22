@@ -1,1 +1,0 @@
-var e=`/assets/OccupationalTherapy-D7hxPDfs.jpg`;export{e as t};

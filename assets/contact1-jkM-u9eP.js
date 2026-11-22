@@ -1,0 +1,1 @@
+var e=`/assets/contact1-6qMPxQbI.webp`;export{e as t};
