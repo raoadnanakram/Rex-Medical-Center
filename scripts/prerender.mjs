@@ -31,7 +31,15 @@ const escapeHtml = (s) =>
 const jsonLd = (data) =>
   `<script type="application/ld+json">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`;
 
-function headHtml(seo, schemas = []) {
+// Preload the page's main (LCP) image: the first <img fetchpriority="high"> in the rendered page.
+// The browser then starts downloading it right away instead of waiting for the CSS and JS.
+function lcpPreload(appHtml) {
+  const img = appHtml.match(/<img\b[^>]*\bfetchpriority="high"[^>]*>/);
+  const src = img && img[0].match(/\bsrc="([^"]+)"/);
+  return src ? `<link rel="preload" as="image" href="${src[1]}" fetchpriority="high" />` : null;
+}
+
+function headHtml(seo, schemas = [], extra = []) {
   const tags = headTagsFor(seo);
   const lines = [`<title>${escapeHtml(tags.title)}</title>`];
   for (const [attr, key, value] of tags.meta) {
@@ -39,12 +47,13 @@ function headHtml(seo, schemas = []) {
   }
   if (tags.canonical) lines.push(`<link rel="canonical" href="${tags.canonical}" />`);
   for (const schema of schemas) lines.push(jsonLd(schema));
+  for (const tag of extra) if (tag) lines.push(tag);
   return lines.join('\n    ');
 }
 
 function buildPage(seo, appHtml, schemas) {
   return template
-    .replace(HEAD_PATTERN, headHtml(seo, schemas))
+    .replace(HEAD_PATTERN, headHtml(seo, schemas, [lcpPreload(appHtml)]))
     .replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`);
 }
 

@@ -1,10 +1,10 @@
 // src/data/teamData.js
-import kashifImg from '../assets/images/team/Kashif.jpg';
-import naveedImg1 from '../assets/images/team/Naveed.jpeg';
-import AsiaImg from '../assets/images/team/Asia.jpg';
-import AyazImg from '../assets/images/team/Ayaz.jpg';
-import DrImg from '../assets/images/team/Dr.png';
-import contactDr from '../assets/images/team/Abdulrehman.jpeg';
+import kashifImg from '../assets/images/team/Kashif.webp';
+import naveedImg1 from '../assets/images/team/Naveed.webp';
+import AsiaImg from '../assets/images/team/Asia.webp';
+import AyazImg from '../assets/images/team/Ayaz.webp';
+import DrImg from '../assets/images/team/Dr.webp';
+import contactDr from '../assets/images/team/Abdulrehman.webp';
 export const teamMembers = [
   {
     id: 1,

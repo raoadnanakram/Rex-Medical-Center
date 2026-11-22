@@ -1,6 +1,6 @@
 
 import { motion } from 'framer-motion';
-import conditionsImg from '../../assets/images/services/conditions.png';
+import conditionsImg from '../../assets/images/services/conditions.webp';
 import { 
   ArrowRight, 
   PhoneCall, 

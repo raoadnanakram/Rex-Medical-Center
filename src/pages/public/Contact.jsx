@@ -4,8 +4,8 @@ import { MapPin, Phone, MessageSquare, Mail, Clock, Calendar, ArrowRight, Loader
 
 
 // Contact images import kar li hain (ensure karein ke ye files src/assets folder mein mojood hon)
-import contact1Img from '../../assets/images/contact/contact1.jpg';
-import contact2Img from '../../assets/images/contact/contact2.jpg';
+import contact1Img from '../../assets/images/contact/contact1.webp';
+import contact2Img from '../../assets/images/contact/contact2.webp';
 import { API_BASE_URL } from '../../config/api';
 import { PHONES } from '../../data/business';
 

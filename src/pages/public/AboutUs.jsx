@@ -4,13 +4,13 @@ import { CheckCircle2, HeartHandshake, ShieldCheck, Sparkles, Target, ArrowRight
 import { Link } from 'react-router-dom';
 
 // Team members ke liye local JPG images import ki gayi hain (Naveed aur Usman shamil hain)
-import AftabImg from '../../assets/images/team/Aftab.jpg';
-import NaveedImg1 from '../../assets/images/team/Naveed.jpeg';
-import usmanImg from '../../assets/images/team/Usman.jpg';
-import AsiaImg from '../../assets/images/team/Asia.jpg';
-import AyazImg from '../../assets/images/team/Ayaz.jpg';
-import DrImg from '../../assets/images/team/Dr.png';
-import contact1Img from '../../assets/images/contact/contact1.jpg';
+import AftabImg from '../../assets/images/team/Aftab.webp';
+import NaveedImg1 from '../../assets/images/team/Naveed.webp';
+import usmanImg from '../../assets/images/team/Usman.webp';
+import AsiaImg from '../../assets/images/team/Asia.webp';
+import AyazImg from '../../assets/images/team/Ayaz.webp';
+import DrImg from '../../assets/images/team/Dr.webp';
+import contact1Img from '../../assets/images/contact/contact1.webp';
 
 export default function AboutUs() {
   const teamMembers = [

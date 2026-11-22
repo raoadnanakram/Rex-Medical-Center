@@ -4,12 +4,12 @@ import { ArrowRight, CheckCircle2, Phone, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 // Lokale Bilder importieren
-import speechImg from '../../assets/images/services/SpeechlanguageTherapy.jpg';
-import abaImg from '../../assets/images/services/ABATherapy.jpg';
-import occupationalImg from '../../assets/images/services/OccupationalTherapy.jpg';
-import physiotherapyImg from '../../assets/images/services/Physiotherapy.jpg';
-import familyImg from '../../assets/images/common/family.jpg';
-import consultantImg from '../../assets/images/services/Consultant.jpg';
+import speechImg from '../../assets/images/services/SpeechlanguageTherapy.webp';
+import abaImg from '../../assets/images/services/ABATherapy.webp';
+import occupationalImg from '../../assets/images/services/OccupationalTherapy.webp';
+import physiotherapyImg from '../../assets/images/services/Physiotherapy.webp';
+import familyImg from '../../assets/images/common/family.webp';
+import consultantImg from '../../assets/images/services/Consultant.webp';
 import { PHONES } from '../../data/business';
 
 const MotionLink = motion.create(Link);

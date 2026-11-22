@@ -17,10 +17,10 @@ import {
   Quote,
 } from 'lucide-react';
 import { teamMembers } from '../../data/teamData';
-import AftabImg from '../../assets/images/team/Aftab.jpg';
-import usmanImg from '../../assets/images/team/Usman.jpg';
-import naveedImg1 from '../../assets/images/team/Naveed.jpeg';
-import AsiaImg from '../../assets/images/team/Asia.jpg';
+import AftabImg from '../../assets/images/team/Aftab.webp';
+import usmanImg from '../../assets/images/team/Usman.webp';
+import naveedImg1 from '../../assets/images/team/Naveed.webp';
+import AsiaImg from '../../assets/images/team/Asia.webp';
 
 // Leadership Team Data with complete professional messages & templates
 const leadershipMembers = [

@@ -2,8 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2, Phone, Mic, MessageCircle, Sparkles, Volume2, Award, Users } from 'lucide-react';
-import occupationalImg from '../../assets/images/services/OccupationalTherapy.jpg';
-import occupationalImg1 from '../../assets/images/services/Occupational.jpg';
+import occupationalImg from '../../assets/images/services/OccupationalTherapy.webp';
+import occupationalImg1 from '../../assets/images/services/Occupational.webp';
 import { PHONES } from '../../data/business';
 
 

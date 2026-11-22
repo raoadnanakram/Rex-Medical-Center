@@ -9,7 +9,7 @@ import {
   Quote,
   Star,
 } from 'lucide-react';
-import abaHeroImg from '../../assets/images/services/ABATherapy.jpg';
+import abaHeroImg from '../../assets/images/services/ABATherapy.webp';
 import { PHONES } from '../../data/business';
 
 // ==========================================

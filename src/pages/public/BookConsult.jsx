@@ -3,8 +3,8 @@ import { useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Sparkles, ArrowRight, Mail, CheckCircle2, Clock, MapPin, Video, Building2, CalendarDays, Loader2 } from 'lucide-react';
 
-import book1Img from '../../assets/images/booking/Book1.jpg';
-import book2Img from '../../assets/images/booking/Book2.jpg';
+import book1Img from '../../assets/images/booking/Book1.webp';
+import book2Img from '../../assets/images/booking/Book2.webp';
 import { API_BASE_URL } from '../../config/api';
 import { PHONES } from '../../data/business';
 

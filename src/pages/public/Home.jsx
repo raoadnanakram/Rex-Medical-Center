@@ -25,20 +25,20 @@ import {
 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 // Local Assets Imports
-import heroImg from '../../assets/images/hero/hero-banner.jpg';
-import physiotherapyImg from '../../assets/images/services/Physiotherapy.jpg';
-import occupationalImg from '../../assets/images/services/OccupationalTherapy.jpg';
-import speechImg from '../../assets/images/services/SpeechlanguageTherapy.jpg';
-import abaImg from '../../assets/images/services/ABATherapy.jpg';
-import AftabImg from '../../assets/images/team/Aftab.jpg';
-import usmanImg from '../../assets/images/team/Usman.jpg';
-import naveedImg1 from '../../assets/images/team/Naveed.jpeg';
-import AsiaImg from '../../assets/images/team/Asia.jpg';
-import AyazImg from '../../assets/images/team/Ayaz.jpg';
-import DrImg from '../../assets/images/team/Dr.png';
-import KashifImg from '../../assets/images/team/Kashif.jpg';
-import contact1Img from '../../assets/images/contact/contact1.jpg';
-import contactDr from '../../assets/images/team/Abdulrehman.jpeg';
+import heroImg from '../../assets/images/hero/hero-banner.webp';
+import physiotherapyImg from '../../assets/images/services/Physiotherapy.webp';
+import occupationalImg from '../../assets/images/services/OccupationalTherapy.webp';
+import speechImg from '../../assets/images/services/SpeechlanguageTherapy.webp';
+import abaImg from '../../assets/images/services/ABATherapy.webp';
+import AftabImg from '../../assets/images/team/Aftab.webp';
+import usmanImg from '../../assets/images/team/Usman.webp';
+import naveedImg1 from '../../assets/images/team/Naveed.webp';
+import AsiaImg from '../../assets/images/team/Asia.webp';
+import AyazImg from '../../assets/images/team/Ayaz.webp';
+import DrImg from '../../assets/images/team/Dr.webp';
+import KashifImg from '../../assets/images/team/Kashif.webp';
+import contact1Img from '../../assets/images/contact/contact1.webp';
+import contactDr from '../../assets/images/team/Abdulrehman.webp';
 
 const dynamicWords = ["trusted", "expert", "experienced"];
 const BOOK_LINK = "/book-a-free-consult";

@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2, Phone, Award } from 'lucide-react';
-import abaHeroImg from '../../assets/images/services/ABATherapy.jpg';
+import abaHeroImg from '../../assets/images/services/ABATherapy.webp';
 import { PHONES } from '../../data/business';
 
 

@@ -13,7 +13,7 @@ Status: ✅ code mein ho chuka | 🟡 code ready, aap ko ek step karna hai | �
 | 7 | Create Google Business Profile | 👤 | business.google.com par banayein. Banne ke baad Maps link, opening hours aur coordinates `data/structuredData.js` mein add karein (`hasMap`, `openingHoursSpecification`, `geo`). Social profiles (`sameAs`) pehle se schema mein hain. |
 | 8 | Switch on HTTPS | 🟡 | `index.html` mein http→https backup redirect hai. Asal switch: GitHub repo → Settings → Pages → **Enforce HTTPS** ON karein (domain `rexmedcomplex.com`). |
 | 9 | Unique title for every page | ✅ | `data/seoRoutes.js` mein 22 pages ke unique titles (sab 60 characters se kam) + descriptions. `/career` aur news posts ko bhi SEO entry mili. Naya page jodein to yahan entry zaroor likhein. |
-| 10 | Check your page speed | ✅ / 👤 | Code: har page alag chunk, Font Awesome non-blocking, hero image `fetchpriority=high`, neeche wali images lazy-load, Google Fonts `display=swap`. Aap: pagespeed.web.dev par site test karein aur score `memory.md` mein likhein. |
+| 10 | Check your page speed | ✅ / 👤 | Code: har page alag chunk, Font Awesome aur Google Fonts non-blocking, saari images WebP (2.0 MB se 0.86 MB), hero image preload + `fetchpriority=high`, neeche wali images lazy-load. Aap: deploy ke baad pagespeed.web.dev par dobara test karein aur score `memory.md` mein likhein. |
 | 11 | Allow ChatGPT Search to crawl | ✅ | `public/robots.txt` mein `OAI-SearchBot`, `ChatGPT-User` (aur `PerplexityBot`) allowed hain. `llms.txt` har build par banta hai. |
 
 ## Baad mein dekhne wali cheezein
