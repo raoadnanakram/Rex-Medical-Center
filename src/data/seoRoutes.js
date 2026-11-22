@@ -49,7 +49,7 @@ export const seoRoutes = [
   {
     path: '/services/occupational-therapy',
     name: 'Occupational Therapy',
-    title: 'Occupational Therapy for Children in Lahore | REX Medical Complex',
+    title: 'Child Occupational Therapy in Lahore | REX Medical Complex',
     description:
       'Paediatric occupational therapy and sensory integration to build motor, self-care and sensory-processing skills. Book a free consultation in Lahore.',
   },
@@ -77,12 +77,13 @@ export const seoRoutes = [
   {
     path: '/services/specialist-consultations',
     name: 'Specialist Consultations',
-    title: 'Specialist Doctor Consultations in Lahore | REX Medical Complex',
+    title: 'Specialist Doctor Consultations | REX Medical Complex',
     description:
       'Consult experienced specialist doctors at REX Medical Complex, Allama Iqbal Town, Lahore. Book your appointment online or on WhatsApp.',
   },
   {
-    path: '/conditions',
+    // Conditions ab Services ke sub page ke taur par, sab se aakhir mein
+    path: '/services/conditions',
     name: 'Conditions We Support',
     title: 'Conditions We Support | Autism, ADHD, Speech Delay | REX',
     description:
@@ -94,6 +95,20 @@ export const seoRoutes = [
     title: 'Speech Therapy Toys, Books & Tools | REX Medical Complex',
     description:
       'Speech therapy toys, books and learning tools chosen by therapists to help children practise communication at home. Delivery across Pakistan.',
+  },
+  {
+    path: '/reviews',
+    name: 'Reviews',
+    title: 'Parent Reviews | REX Medical Complex Lahore',
+    description:
+      'Read what parents say about speech, ABA, occupational therapy and physiotherapy at REX Medical Complex, Lahore, and share your own experience.',
+  },
+  {
+    path: '/news-events',
+    name: 'News & Events',
+    title: 'News & Events | REX Medical Complex Lahore',
+    description:
+      'Latest news, workshops, awareness events and open days from REX Medical Complex, a child therapy centre in Allama Iqbal Town, Lahore.',
   },
   {
     path: '/contact',
@@ -115,6 +130,13 @@ export const seoRoutes = [
     title: 'Donate | Support Child Therapy | REX Medical Complex',
     description:
       'Support therapy for children from families in need. Donate to REX Medical Complex by bank transfer or mobile wallet.',
+  },
+  {
+    path: '/career',
+    name: 'Careers',
+    title: 'Careers at REX Medical Complex | Therapy Jobs in Lahore',
+    description:
+      'Join the REX Medical Complex team in Lahore. See open roles for speech, ABA, occupational and physiotherapy professionals and send your CV online.',
   },
   {
     path: '/privacy-policy',
@@ -141,8 +163,10 @@ export const seoRoutes = [
 export const redirects = {
   '/Tools': '/therapy-tools',
   '/donat-now': '/donate',
+  '/donate-now': '/donate',
   '/services/sensorytherapy': '/services/sensory-therapy',
   '/services/playtherapy': '/services/play-therapy',
+  '/conditions': '/services/conditions',
 };
 
 export const ADMIN_META = {
@@ -157,5 +181,17 @@ export const NOT_FOUND_META = {
 
 export function getSeoForPath(pathname) {
   const clean = pathname !== '/' ? pathname.replace(/\/+$/, '') : '/';
-  return seoRoutes.find((r) => r.path === clean) || null;
+  const exact = seoRoutes.find((r) => r.path === clean);
+  if (exact) return exact;
+  // Individual news posts (/news-events/<id>) are loaded from the API, so they share one entry.
+  // NewsDetail.jsx sets the real post title once the post has loaded.
+  if (/^\/news-events\/[^/]+$/.test(clean)) {
+    return {
+      path: clean,
+      name: 'News & Events',
+      title: 'News & Events | REX Medical Complex Lahore',
+      description: 'News, events and updates from REX Medical Complex, Lahore.',
+    };
+  }
+  return null;
 }

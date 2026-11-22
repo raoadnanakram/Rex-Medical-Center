@@ -1,18 +1,17 @@
 // src/data/teamData.js
-import AftabImg from '../assets/Aftab.jpg';
-import kashifImg from '../assets/Kashif.jpg';
-import naveedImg from '../assets/Naveed.jpg';
-import AsiaImg from '../assets/Asia.jpg';
-import AyazImg from '../assets/Ayaz.jpg';
-import DrImg from '../assets/Dr.png';
-import contactDr from '../assets/Abdulrehman.jpeg';
+import kashifImg from '../assets/images/team/Kashif.jpg';
+import naveedImg1 from '../assets/images/team/Naveed.jpeg';
+import AsiaImg from '../assets/images/team/Asia.jpg';
+import AyazImg from '../assets/images/team/Ayaz.jpg';
+import DrImg from '../assets/images/team/Dr.png';
+import contactDr from '../assets/images/team/Abdulrehman.jpeg';
 export const teamMembers = [
   {
     id: 1,
     name: "Naveed Ahmed Aftab Bhutta",
     designation: "CEO |Consultant Speech and Language Pathologist",
     category: "SPEECH & LANGUAGE THERAPY",
-    image: naveedImg, // Aapki local image assign ki gayi hai
+    image: naveedImg1, // Aapki local image assign ki gayi hai
     qualification: "MS. Speech and Language Pathology | Certified Audiometrist (GTCTD)",
     experience: "8+ Years",
     specialization: "Autism & Behavioral Support",
@@ -97,7 +96,7 @@ export const teamMembers = [
     name: "Dr. Abbas Aftab",
     designation: "Consultant Medical Physician & Neurologist",
     category: "Specialist Consultations", // Physician/neurologist, listed under Specialist Consultation on the booking page
-    image: AftabImg, // Aapki local image
+    image: DrImg, // Aapki local image
     qualification: "M.B.B.S, F.C.P.S. (Medicine)",
     experience: "15+ Years",
     specialization: "Neurology & Internal Medicine",

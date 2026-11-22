@@ -6,8 +6,15 @@ export const SITE_URL = 'https://rexmedcomplex.com';
 export const ADDRESS = '91 A, College Block, Allama Iqbal Town, Lahore, Pakistan';
 export const EMAIL = 'info@rexmedcomplex.com';
 
+// Official social profiles. Used by the Footer links and by the JSON-LD `sameAs` list (SEO).
+export const SOCIAL = {
+  facebook: 'https://www.facebook.com/share/188Hyyk26h/',
+  instagram: 'https://instagram.com/rex_medical_centre/',
+  tiktok: 'https://tiktok.com/naveedahmedaftabbhutta',
+};
+
 export const PHONES = {
   main: { label: 'Phone', display: '0324 4409797', href: 'tel:+923244409797' },
-  whatsapp: { label: 'WhatsApp', display: '0327 6680954', href: 'https://wa.me/923276680954', number: '923276680954' },
-  landline: { label: 'Landline', display: '042 111739633', href: 'tel:+9242111739633' },
+  whatsapp: { label: 'WhatsApp', display: '0324 4409979', href: 'https://wa.me/923244409979', number: '923244409979' },
+  landline: { label: 'Landline', display: '042 35524099', href: 'tel:+924235524099' },
 };

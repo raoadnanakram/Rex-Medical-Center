@@ -3,7 +3,7 @@ import { createRoot, hydrateRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import App from './App.jsx'
-import { preloadRoute } from './routes'
+import { preloadRoute } from './routes/index'
 
 const container = document.getElementById('root')
 const app = (

@@ -1,7 +1,7 @@
 // JSON-LD for search engines and AI assistants. Written into each prerendered page by
 // scripts/prerender.mjs. Only facts already published on the site are used here; add
 // opening hours, geo coordinates and sameAs profile links once the owner confirms them.
-import { BUSINESS_NAME, SITE_URL, EMAIL, PHONES } from './business.js';
+import { BUSINESS_NAME, SITE_URL, EMAIL, PHONES, SOCIAL } from './business.js';
 import { seoRoutes } from './seoRoutes.js';
 
 const clinicId = `${SITE_URL}/#clinic`;
@@ -26,6 +26,7 @@ export const clinicSchema = {
     addressCountry: 'PK',
   },
   areaServed: { '@type': 'City', name: 'Lahore' },
+  sameAs: Object.values(SOCIAL),
   medicalSpecialty: ['SpeechPathology', 'Physiotherapy', 'Pediatric'],
   contactPoint: [
     { '@type': 'ContactPoint', contactType: 'appointments', telephone: '+92 324 4409797' },

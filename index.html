@@ -16,8 +16,38 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <!-- Font Awesome Icons (non-blocking: page paint is not held up by this stylesheet) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /></noscript>
+
+    <!-- HTTPS: GitHub Pages "Enforce HTTPS" is the main switch; this is a backup for the live domain only -->
+    <script>
+      if (location.protocol === 'http:' && /(^|\.)rexmedcomplex\.com$/.test(location.hostname)) {
+        location.replace('https://' + location.host + location.pathname + location.search + location.hash);
+      }
+    </script>
+
+    <!-- Search engine verification (owner step): paste the content value from Google Search Console / Bing Webmaster Tools,
+         then remove the comment markers. Alternative: put the verification file they give you inside public/.
+    <meta name="google-site-verification" content="PASTE_GOOGLE_CODE_HERE" />
+    <meta name="msvalidate.01" content="PASTE_BING_CODE_HERE" />
+    -->
+
+    <!-- Google Analytics 4 (admin/login pages ginti mein shamil nahi) -->
+    <script>
+      (function () {
+        if (/^\/(admin|login)/i.test(window.location.pathname)) return;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-K39N622R6D';
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-K39N622R6D');
+      })();
+    </script>
   </head>
   <body class="font-sans antialiased text-gray-800 bg-white">
     <div id="root"></div>
