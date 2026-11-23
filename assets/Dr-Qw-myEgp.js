@@ -1,0 +1,1 @@
+var e=`/assets/Ayaz-DK054c_C.jpg`,t=`/assets/Dr-D_Vuu1Xm.png`;export{e as n,t};
