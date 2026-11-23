@@ -133,9 +133,9 @@ export default function Services() {
 
             <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
               <div>
-                <h3 className="font-serif text-xl font-bold text-slate-900 group-hover:text-teal-700 transition-colors mb-2">
+                <h2 className="font-serif text-xl font-bold text-slate-900 group-hover:text-teal-700 transition-colors mb-2">
                   {service.title}
-                </h3>
+                </h2>
                 <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                   {service.desc}
                 </p>
@@ -190,9 +190,9 @@ export default function Services() {
 
             <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
               <div>
-                <h3 className="font-serif text-xl font-bold text-slate-900 group-hover:text-teal-700 transition-colors mb-2">
+                <h2 className="font-serif text-xl font-bold text-slate-900 group-hover:text-teal-700 transition-colors mb-2">
                   {service.title}
-                </h3>
+                </h2>
                 <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                   {service.desc}
                 </p>
@@ -242,7 +242,7 @@ export default function Services() {
                 <ChevronRight className="w-5 h-5" />
               </div>
               <div className="space-y-1">
-                <h4 className="font-serif text-xl font-bold text-slate-900">Child-Centered Approach</h4>
+                <h3 className="font-serif text-xl font-bold text-slate-900">Child-Centered Approach</h3>
                 <p className="text-slate-600 text-sm leading-relaxed">
                   Every child receives individualized attention, personalized therapy goals, and support designed around their unique developmental needs.
                 </p>
@@ -254,7 +254,7 @@ export default function Services() {
                 <ChevronRight className="w-5 h-5" />
               </div>
               <div className="space-y-1">
-                <h4 className="font-serif text-xl font-bold text-slate-900">Family Involvement</h4>
+                <h3 className="font-serif text-xl font-bold text-slate-900">Family Involvement</h3>
                 <p className="text-slate-600 text-sm leading-relaxed">
                   Parents and caregivers are actively involved in therapy planning, home guidance, and progress monitoring throughout the child's journey.
                 </p>
@@ -266,7 +266,7 @@ export default function Services() {
                 <ChevronRight className="w-5 h-5" />
               </div>
               <div className="space-y-1">
-                <h4 className="font-serif text-xl font-bold text-slate-900">Goal-Oriented Programs</h4>
+                <h3 className="font-serif text-xl font-bold text-slate-900">Goal-Oriented Programs</h3>
                 <p className="text-slate-600 text-sm leading-relaxed">
                   Our therapy sessions focus on measurable developmental progress, functional independence, communication growth, and everyday life skills.
                 </p>

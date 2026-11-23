@@ -217,7 +217,7 @@ const HeroSection = () => {
                 <Users className="w-5 h-5" />
               </span>
               <div>
-                <h3 className="text-sm font-semibold text-white">Expert Team</h3>
+                <p className="text-sm font-semibold text-white">Expert Team</p>
                 <p className="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">qualified therapists</p>
               </div>
             </div>
@@ -227,7 +227,7 @@ const HeroSection = () => {
                 <HeartHandshake className="w-5 h-5" />
               </span>
               <div>
-                <h3 className="text-sm font-semibold text-white">Personalized Care</h3>
+                <p className="text-sm font-semibold text-white">Personalized Care</p>
                 <p className="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">child-focused support</p>
               </div>
             </div>
@@ -287,7 +287,7 @@ const HeroSection = () => {
               <Users className="w-5 h-5 sm:w-6 sm:h-6" />
             </span>
             <div className="leading-tight">
-              <h3 className="font-serif text-xl sm:text-2xl font-bold tracking-tight">Children &amp; families</h3>
+              <p className="font-serif text-xl sm:text-2xl font-bold tracking-tight">Children &amp; families</p>
               <p className="text-[10px] sm:text-xs font-semibold text-[#271E38]/70">supported across Lahore</p>
             </div>
           </motion.div>
@@ -337,7 +337,7 @@ const AboutSection = () => {
                 to="/about"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-white font-medium bg-[#162C5A] hover:bg-red-600 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
               >
-                <span>Learn More</span>
+                <span>Learn More About Us</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -808,7 +808,7 @@ const ConditionsSection = () => {
             to="/services/conditions"
             className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-medium bg-[#162C5A] hover:bg-red-600 transition-all duration-300 shadow-md hover:shadow-xl transform hover:-translate-y-1"
           >
-            <span>Learn More</span>
+            <span>Explore Conditions We Support</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </motion.div>
@@ -1230,7 +1230,7 @@ export const ReviewsCarouselSection = () => {
                       {item.initial}
                     </div>
                     <div>
-                      <h4 className="font-semibold text-white text-sm leading-tight">{item.name}</h4>
+                      <h3 className="font-semibold text-white text-sm leading-tight">{item.name}</h3>
                       <p className="text-teal-300 text-[11px] font-medium mt-0.5">{item.role}</p>
                     </div>
                   </div>
@@ -1260,7 +1260,7 @@ export const ReviewsCarouselSection = () => {
                       {item.initial}
                     </div>
                     <div>
-                      <h4 className="font-semibold text-white text-sm leading-tight">{item.name}</h4>
+                      <h3 className="font-semibold text-white text-sm leading-tight">{item.name}</h3>
                       <p className="text-teal-300 text-[11px] font-medium mt-0.5">{item.role}</p>
                     </div>
                   </div>
@@ -1380,9 +1380,9 @@ export const SpeechTherapyVideoSection = () => {
             className="lg:col-span-5 flex flex-col gap-4"
           >
             <div className="flex items-center justify-between px-1">
-              <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-slate-500">
+              <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-slate-500">
                 Available Resources ({speechVideosData.length})
-              </h4>
+              </h3>
               <span className="text-xs text-teal-600 font-semibold">Click to play here</span>
             </div>
 
@@ -1421,11 +1421,11 @@ export const SpeechTherapyVideoSection = () => {
                         Resource {String(index + 1).padStart(2, "0")}
                       </span>
                     </div>
-                    <h4 className={`font-semibold text-sm leading-snug mt-0.5 transition-colors line-clamp-1 ${
+                    <h3 className={`font-semibold text-sm leading-snug mt-0.5 transition-colors line-clamp-1 ${
                       isActive ? "text-[#162C5A]" : "text-slate-800 group-hover:text-teal-700"
                     }`}>
                       {video.title}
-                    </h4>
+                    </h3>
                     <p className="text-slate-500 text-xs leading-relaxed mt-1 line-clamp-2">
                       {video.desc}
                     </p>
@@ -1437,7 +1437,7 @@ export const SpeechTherapyVideoSection = () => {
             {/* Bottom Booking Banner */}
             <div className="mt-2 bg-gradient-to-r from-[#162C5A] to-[#271E38] rounded-2xl p-5 text-white shadow-xl flex items-center justify-between">
               <div>
-                <h5 className="font-serif text-base font-normal">Need personalized speech therapy?</h5>
+                <h3 className="font-serif text-base font-normal">Need personalized speech therapy?</h3>
                 <p className="text-xs text-slate-300 mt-0.5">Book a dedicated consultation session with our specialists.</p>
               </div>
               <Link
@@ -1673,10 +1673,10 @@ function TeamProfileModal({ expert, isOpen, onClose }) {
 
                 {expert.sections.map((sec, i) => (
                   <div key={i} className="space-y-2">
-                    <h4 className="font-serif font-bold text-[#003B5C] text-base sm:text-lg flex items-center gap-2">
+                    <h3 className="font-serif font-bold text-[#003B5C] text-base sm:text-lg flex items-center gap-2">
                       <Quote className="w-4 h-4 text-[#00A8CD]" />
                       {sec.title}
-                    </h4>
+                    </h3>
                     {sec.text && <p className="text-slate-600 text-sm leading-relaxed">{sec.text}</p>}
                     {sec.quote && (
                       <blockquote className="border-l-4 border-[#00A8CD] pl-4 italic text-slate-700 text-sm bg-slate-50 py-3 rounded-r-xl">
@@ -1697,14 +1697,14 @@ function TeamProfileModal({ expert, isOpen, onClose }) {
               <div className="space-y-4 pt-2 border-t border-slate-100">
                 {expert.specialization && (
                   <div>
-                    <h4 className="font-bold text-[#003B5C] text-sm uppercase tracking-wider mb-1">Specialization</h4>
+                    <h3 className="font-bold text-[#003B5C] text-sm uppercase tracking-wider mb-1">Specialization</h3>
                     <p className="text-slate-700 text-sm">{expert.specialization}</p>
                   </div>
                 )}
 
                 {expert.expertise && (
                   <div>
-                    <h4 className="font-bold text-[#003B5C] text-sm uppercase tracking-wider mb-2">Areas of Expertise</h4>
+                    <h3 className="font-bold text-[#003B5C] text-sm uppercase tracking-wider mb-2">Areas of Expertise</h3>
                     <div className="flex flex-wrap gap-2">
                       {expert.expertise.map((item, index) => (
                         <span key={index} className="inline-flex items-center gap-1.5 bg-[#00A8CD]/10 text-[#003B5C] text-xs font-semibold px-3 py-1 rounded-full">
@@ -1717,7 +1717,7 @@ function TeamProfileModal({ expert, isOpen, onClose }) {
                 )}
 
                 <div>
-                  <h4 className="font-bold text-[#003B5C] text-sm uppercase tracking-wider mb-1">Professional Biography</h4>
+                  <h3 className="font-bold text-[#003B5C] text-sm uppercase tracking-wider mb-1">Professional Biography</h3>
                   <p className="text-slate-600 text-sm leading-relaxed">{expert.bio}</p>
                 </div>
               </div>

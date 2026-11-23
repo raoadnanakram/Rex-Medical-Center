@@ -113,7 +113,7 @@ export default function AboutUs() {
                 <Target className="w-6 h-6" />
               </div>
               <div>
-                <h4 className="font-serif text-lg font-bold text-slate-900 mb-1">Child-First Approach</h4>
+                <h3 className="font-serif text-lg font-bold text-slate-900 mb-1">Child-First Approach</h3>
                 <p className="text-slate-600 text-sm">Every therapy session is uniquely customized around the child's natural pace and emotional comfort.</p>
               </div>
             </div>
@@ -122,7 +122,7 @@ export default function AboutUs() {
                 <HeartHandshake className="w-6 h-6" />
               </div>
               <div>
-                <h4 className="font-serif text-lg font-bold text-slate-900 mb-1">Family Partnership</h4>
+                <h3 className="font-serif text-lg font-bold text-slate-900 mb-1">Family Partnership</h3>
                 <p className="text-slate-600 text-sm">We empower parents with home-guidance strategies to ensure continuous developmental progress.</p>
               </div>
             </div>

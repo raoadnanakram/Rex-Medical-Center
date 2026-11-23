@@ -1,0 +1,42 @@
+/* --- Global Styles & CSS Reset --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f4f7f6;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Container for centering content */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Common Header/Heading Style */
+h1, h2, h3 {
+  color: #004d40; /* Medical Dark Teal / Professional Theme Color */
+  margin-bottom: 15px;
+}
+
+/* Button Styling Example */
+.btn-primary {
+  background-color: #00796b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #004d40;
+}

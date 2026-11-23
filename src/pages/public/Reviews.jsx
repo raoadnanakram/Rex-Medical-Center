@@ -601,7 +601,7 @@ function ReviewsSection() {
 
                   <div className="space-y-1.5">
                     <label className="text-xs font-semibold text-slate-600">Which service did you use?</label>
-                    <select
+                    <select aria-label="Service you used"
                       value={form.service}
                       onChange={(e) => setForm({ ...form, service: e.target.value })}
                       className={`${inputClass} cursor-pointer`}

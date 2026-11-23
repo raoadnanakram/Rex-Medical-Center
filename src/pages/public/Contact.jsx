@@ -329,7 +329,7 @@ export default function Contact() {
 
               <div className="space-y-1.5">
                 <label className="text-xs font-semibold text-slate-600">What services are you interested in?</label>
-                <select 
+                <select aria-label="Service you are interested in" 
                   value={formData.service}
                   onChange={(e) => setFormData({...formData, service: e.target.value})}
                   required

@@ -507,7 +507,7 @@ export default function ShopPage() {
                     <f.icon className="w-6 h-6" />
                   </span>
                   <div className="min-w-0">
-                    <h3 className="text-sm font-bold text-slate-900">{f.t}</h3>
+                    <h2 className="text-sm font-bold text-slate-900">{f.t}</h2>
                     <p className="text-[11px] sm:text-xs text-slate-500 font-medium mt-0.5">{f.d}</p>
                   </div>
                 </motion.div>
@@ -604,7 +604,7 @@ export default function ShopPage() {
                   <div>
                     <label className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3 block">Category</label>
                     <div className="relative">
-                      <select
+                      <select aria-label="Product category"
                         value={category}
                         onChange={(e) => holdScroll(() => setCategory(e.target.value))}
                         className="w-full appearance-none bg-slate-50 border border-slate-200 text-sm font-semibold rounded-xl pl-4 pr-10 py-2.5 focus:outline-none focus:border-teal-500 cursor-pointer"
@@ -637,7 +637,7 @@ export default function ShopPage() {
                     <div className="flex justify-between text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">
                       <span>Max Price</span><span className="text-teal-600">{money(maxPrice)}</span>
                     </div>
-                    <input
+                    <input aria-label="Maximum price"
                       type="range"
                       min="500"
                       max={MAX_PRICE}
@@ -657,7 +657,7 @@ export default function ShopPage() {
                     Showing <strong className="text-slate-900">{Math.min(visible, filtered.length)}</strong> of <strong className="text-slate-900">{filtered.length}</strong> products
                   </span>
                   <div className="relative">
-                    <select
+                    <select aria-label="Sort products"
                       value={sortBy}
                       onChange={(e) => holdScroll(() => setSortBy(e.target.value))}
                       className="appearance-none bg-slate-50 border border-slate-200 text-sm font-semibold rounded-xl pl-4 pr-10 py-2.5 focus:outline-none focus:border-teal-500 cursor-pointer"
