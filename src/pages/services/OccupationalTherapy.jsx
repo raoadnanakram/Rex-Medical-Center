@@ -187,7 +187,7 @@ export default function OccupationalTherapy() {
                 whileHover={{ y: -5 }}
                 className="bg-white/10 backdrop-blur-md p-6 rounded-3xl border border-white/15 space-y-2 transition-all"
               >
-                <h3 className="font-serif text-lg font-bold text-white">{area.title}</h3>
+                <h4 className="font-serif text-lg font-bold text-white">{area.title}</h4>
                 <p className="text-slate-200 text-xs sm:text-sm leading-relaxed">{area.desc}</p>
               </motion.div>
             ))}
@@ -373,7 +373,7 @@ export default function OccupationalTherapy() {
                 whileHover={{ y: -4 }}
                 className="bg-slate-50 p-6 rounded-3xl border border-teal-100/60 space-y-2 shadow-xs transition-all"
               >
-                <h3 className="font-serif text-lg font-bold text-[#1c296b]">{team.title}</h3>
+                <h4 className="font-serif text-lg font-bold text-[#1c296b]">{team.title}</h4>
                 <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{team.desc}</p>
               </motion.div>
             ))}
@@ -403,7 +403,7 @@ export default function OccupationalTherapy() {
                 <div className="w-12 h-12 rounded-2xl bg-teal-50 text-teal-700 flex items-center justify-center font-bold text-sm border border-teal-100">
                   {step.step}
                 </div>
-                <h3 className="font-serif text-xl font-bold text-slate-900">{step.title}</h3>
+                <h4 className="font-serif text-xl font-bold text-slate-900">{step.title}</h4>
                 <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{step.desc}</p>
               </motion.div>
             ))}
