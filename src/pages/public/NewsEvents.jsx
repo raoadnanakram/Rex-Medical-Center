@@ -114,7 +114,7 @@ function PostCard({ post, index, upcoming }) {
               <MapPin className="w-3.5 h-3.5" /> {post.location}
             </div>
           )}
-          <h2 className="font-serif text-xl font-bold leading-snug text-slate-900 transition-colors group-hover:text-teal-700 line-clamp-2">{post.title}</h2>
+          <h3 className="font-serif text-xl font-bold leading-snug text-slate-900 transition-colors group-hover:text-teal-700 line-clamp-2">{post.title}</h3>
           <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-500 line-clamp-3">{post.excerpt}</p>
           <div className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#162C5A] group-hover:text-teal-700">
             Read more

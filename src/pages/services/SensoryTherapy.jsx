@@ -110,7 +110,7 @@ export default function SensoryTherapy() {
                 <div key={idx} className="flex items-start gap-3 bg-slate-50 px-4 py-3 rounded-2xl border border-teal-100/60 shadow-xs">
                   <CheckCircle2 className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <h3 className="font-bold text-slate-900 text-xs sm:text-sm">{item.title}</h3>
+                    <h4 className="font-bold text-slate-900 text-xs sm:text-sm">{item.title}</h4>
                     <p className="text-slate-600 text-xs">{item.desc}</p>
                   </div>
                 </div>
@@ -261,7 +261,7 @@ export default function SensoryTherapy() {
                 <span className="text-xs font-bold text-teal-600 uppercase tracking-widest bg-teal-50 px-3 py-1 rounded-full border border-teal-100 inline-block">
                   Step {step.step}
                 </span>
-                <h3 className="font-serif text-lg font-bold text-[#1c296b] pt-1">{step.title}</h3>
+                <h4 className="font-serif text-lg font-bold text-[#1c296b] pt-1">{step.title}</h4>
                 <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{step.desc}</p>
               </motion.div>
             ))}

@@ -81,7 +81,7 @@ export default function SpeechTherapy() {
             />
             <div className="absolute bottom-8 left-8 right-8 bg-slate-900/60 backdrop-blur-md p-6 rounded-2xl border border-white/10 text-white">
               <p className="text-xs uppercase tracking-widest text-teal-300 font-bold mb-1">Clinical Standard</p>
-              <h2 className="font-serif text-xl font-bold">Personalized Care Plans Tailored For Every Child</h2>
+              <h4 className="font-serif text-xl font-bold">Personalized Care Plans Tailored For Every Child</h4>
             </div>
           </motion.div>
 
@@ -166,7 +166,7 @@ export default function SpeechTherapy() {
                   {React.cloneElement(pillar.icon, { className: "w-6 h-6 group-hover:text-white transition-colors" })}
                 </div>
                 <div>
-                  <h3 className="font-serif text-xl font-bold text-slate-900 mb-2">{pillar.title}</h3>
+                  <h4 className="font-serif text-xl font-bold text-slate-900 mb-2">{pillar.title}</h4>
                   <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{pillar.desc}</p>
                 </div>
               </motion.div>

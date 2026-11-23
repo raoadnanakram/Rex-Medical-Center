@@ -397,7 +397,7 @@ export default function Career() {
                     <div>
                       <label htmlFor="phone" className={labelCls}>Phone Number</label>
                       <div className="flex overflow-hidden rounded-xl border border-slate-200 bg-white transition-all duration-300 hover:border-slate-300 focus-within:border-[#1c296b] focus-within:ring-4 focus-within:ring-[#1c296b]/10">
-                        <select aria-label="Country code"
+                        <select
                           name="countryCode"
                           value={form.countryCode}
                           onChange={handleChange}

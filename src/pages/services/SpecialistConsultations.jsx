@@ -97,7 +97,7 @@ export default function SpecialistDoctors() {
             <div className="w-14 h-14 rounded-2xl bg-teal-500/20 text-teal-300 flex items-center justify-center">
               <Stethoscope className="w-7 h-7" />
             </div>
-            <h2 className="font-serif text-2xl font-bold">Expert Care by MBBS Doctors</h2>
+            <h3 className="font-serif text-2xl font-bold">Expert Care by MBBS Doctors</h3>
             <ul className="space-y-3.5 text-slate-200 text-sm">
               <li className="flex items-center gap-3">
                 <CheckCircle2 className="w-5 h-5 text-teal-400 shrink-0" />
@@ -146,7 +146,7 @@ export default function SpecialistDoctors() {
               whileHover={{ y: -5, scale: 1.02 }}
               className="bg-white p-6 rounded-3xl shadow-xl border border-teal-100/60 text-center space-y-1 transition-all"
             >
-              <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#1c296b]">{stat.value}</h3>
+              <h4 className="font-serif text-xl sm:text-2xl font-bold text-[#1c296b]">{stat.value}</h4>
               <p className="text-slate-500 text-xs font-semibold uppercase tracking-wider">{stat.label}</p>
             </motion.div>
           ))}

@@ -21,11 +21,6 @@ PageSpeed (live, before these changes): desktop 95 perf / 90 accessibility / 100
 Changes: all images converted to resized WebP (2.0 MB -> 0.86 MB), logo.png 117 -> 68 KB, Google Fonts stylesheet non-blocking, prerender adds `<link rel="preload" as="image">` for the hero image (first `<img fetchpriority="high">`), `scripts/optimize-images.mjs` now covers `src/assets/images/**` and webp.
 Next: redeploy, re-test mobile, then check the Diagnostics list (unused JS, render-blocking, image sizes). Consider Cloudflare (free) in front of GitHub Pages for TTFB and caching.
 
-## Accessibility and SEO audit fixes (22 Nov 2026)
-PageSpeed mobile (before): Performance 70, Accessibility 90, Best Practices 100, SEO 92.
-Fixes: aria-label on 11 unlabeled select/range controls (Book, Contact, Donate, Reviews, Career, Tools); "Learn More" links now descriptive (Home); heading order fixed on 14 pages (Footer column titles are h2, step/card titles h3, hero cards `<p>`); no heading level is skipped in any page render.
-Not measured: colour contrast (needs the Lighthouse failing list). Next: re-run PageSpeed after deploy and send the failing-audit list.
-
 ## Known open items
 - `AdminDashboard.jsx` (~5300 lines) aur `Home.jsx` (~1850) bahut bade hain.
 - 31 ESLint react-hooks v7 errors (behaviour-risky, jaan bujh kar nahi chhere).

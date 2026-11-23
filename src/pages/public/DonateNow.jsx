@@ -119,7 +119,7 @@ export default function DonateNow() {
             </div>
 
             <div className="bg-slate-50 p-6 rounded-3xl border border-slate-200 max-w-lg mx-auto text-left space-y-4">
-              <h3 className="font-serif font-bold text-slate-900 border-b pb-2">Transfer Accounts Reference:</h3>
+              <h4 className="font-serif font-bold text-slate-900 border-b pb-2">Transfer Accounts Reference:</h4>
               
               <div className="flex justify-between items-center text-sm">
                 <div>
@@ -275,7 +275,7 @@ export default function DonateNow() {
                     <div className="flex justify-between items-start">
                       <div>
                         <span className="text-teal-400 text-xs font-bold uppercase tracking-wider">Account Title: {accountDetails[activeTab].title}</span>
-                        <h2 className="font-serif text-2xl font-bold text-white mt-1">{accountDetails[activeTab].name}</h2>
+                        <h4 className="font-serif text-2xl font-bold text-white mt-1">{accountDetails[activeTab].name}</h4>
                       </div>
                       <span className="bg-white/10 px-3 py-1 rounded-full text-xs font-mono text-teal-200">Verified</span>
                     </div>
@@ -319,7 +319,7 @@ export default function DonateNow() {
                     <div className="flex justify-between items-start">
                       <div>
                         <span className="text-red-400 text-xs font-bold uppercase tracking-wider">Account Title: {accountDetails.jazzcash.title}</span>
-                        <h3 className="font-serif text-2xl font-bold text-white mt-1">JazzCash Account</h3>
+                        <h4 className="font-serif text-2xl font-bold text-white mt-1">JazzCash Account</h4>
                       </div>
                       <span className="bg-white/10 px-3 py-1 rounded-full text-xs font-mono text-red-200">Instant</span>
                     </div>
@@ -383,7 +383,7 @@ export default function DonateNow() {
                   required
                   className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:outline-none focus:border-[#1c296b] text-sm bg-slate-50"
                 />
-                <select aria-label="Gender"
+                <select
                   value={donorInfo.gender}
                   onChange={(e) => setDonorInfo({...donorInfo, gender: e.target.value})}
                   className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:outline-none focus:border-[#1c296b] text-sm bg-slate-50 cursor-pointer"
