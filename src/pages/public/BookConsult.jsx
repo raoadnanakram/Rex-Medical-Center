@@ -399,7 +399,7 @@ export default function BookConsult() {
               <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
-              <h4 className="font-serif text-2xl font-bold text-slate-900">Request Received!</h4>
+              <h3 className="font-serif text-2xl font-bold text-slate-900">Request Received!</h3>
               <p className="text-slate-600 text-sm">
                 Thank you! Your <span className="font-bold text-[#1c296b]">{formData.sessionType}</span> session with <span className="font-bold">{formData.doctor}</span> at <span className="font-bold text-teal-700">{isOnline ? ONLINE_LABEL : formData.location}</span> on <span className="font-bold">{formData.date}</span> for slot <span className="font-bold">{formData.timeSlot}</span> has been requested.
               </p>
@@ -484,7 +484,7 @@ export default function BookConsult() {
 
               <div className="space-y-1.5">
                 <label className="text-xs font-bold text-slate-700 uppercase tracking-wider">Select Department / Service</label>
-                <select 
+                <select aria-label="Select department or service" 
                   value={formData.service}
                   onChange={handleDepartmentChange}
                   required
@@ -502,7 +502,7 @@ export default function BookConsult() {
               {formData.service && (
                 <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="space-y-1.5">
                   <label className="text-xs font-bold text-slate-700 uppercase tracking-wider">Select Doctor</label>
-                  <select 
+                  <select aria-label="Select doctor" 
                     value={formData.doctor}
                     onChange={handleDoctorChange}
                     required
@@ -553,7 +553,7 @@ export default function BookConsult() {
                   <label className="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1.5">
                     <MapPin className="w-3.5 h-3.5 text-red-600" /> Select Hospital / Clinic Location
                   </label>
-                  <select 
+                  <select aria-label="Select hospital or clinic location" 
                     value={formData.location}
                     onChange={handleLocationChange}
                     required
@@ -692,7 +692,7 @@ export default function BookConsult() {
               We are always here to help you
             </h2>
             <div className="pt-3 space-y-1">
-              <h4 className="font-serif text-lg font-bold text-[#1c296b]">Noor Hospital Kasur & REX Medical Complex</h4>
+              <h3 className="font-serif text-lg font-bold text-[#1c296b]">Noor Hospital Kasur & REX Medical Complex</h3>
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                 Kasur Branch & Allama Iqbal Town, Lahore, Pakistan
               </p>

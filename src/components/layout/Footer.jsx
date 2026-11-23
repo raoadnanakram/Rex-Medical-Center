@@ -79,9 +79,9 @@ function Footer() {
 
           {/* Col 2: Quick Links */}
           <div>
-            <h4 className="font-bold text-white text-sm uppercase tracking-wider mb-5 border-l-2 border-emerald-500 pl-3">
+            <h2 className="font-bold text-white text-sm uppercase tracking-wider mb-5 border-l-2 border-emerald-500 pl-3">
               Quick Links
-            </h4>
+            </h2>
             <ul className="space-y-3 text-xs">
               {[
                 { name: 'About Our Center', path: '/about' },
@@ -108,9 +108,9 @@ function Footer() {
 
           {/* Col 3: Our Specialties */}
           <div>
-            <h4 className="font-bold text-white text-sm uppercase tracking-wider mb-5 border-l-2 border-blue-500 pl-3">
+            <h2 className="font-bold text-white text-sm uppercase tracking-wider mb-5 border-l-2 border-blue-500 pl-3">
               Our Specialties
-            </h4>
+            </h2>
             <ul className="space-y-3 text-xs">
               {[
                 { name: 'Speech Therapy', path: '/services/speech-therapy' },
@@ -136,9 +136,9 @@ function Footer() {
 
           {/* Col 4: Get In Touch */}
           <div className="space-y-4">
-            <h4 className="font-bold text-white text-sm uppercase tracking-wider mb-5 border-l-2 border-red-600 pl-3">
+            <h2 className="font-bold text-white text-sm uppercase tracking-wider mb-5 border-l-2 border-red-600 pl-3">
               Get In Touch
-            </h4>
+            </h2>
             
             <ul className="space-y-3.5 text-xs">
               <li className="flex items-start gap-3 group">
